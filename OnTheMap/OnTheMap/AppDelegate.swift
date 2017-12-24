@@ -16,22 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        GetStudentLocationsRequest.shared.get(limit: 3, skip: nil, order: nil) { result in
-            switch result {
-
-            case .success(let studentResults):
-                print(studentResults)
-            case .errorRequest:
-                print("errorRequest")
-            case .errorDataDecoding:
-                print("errorDataDecoding")
-            case .errorJsonDecoding:
-                print("errorJsonDecoding")
-            case .errorInvalidStatusCode:
-                print("errorInvalidStatusCode")
-            }
-        }
-        
+//        GetStudentLocationsRequest.shared.get(limit: 3, skip: nil, order: nil) { result in
+//            switch result {
+//
+//            case .success(let studentResults):
+//                print(studentResults)
+//            case .errorRequest:
+//                print("errorRequest")
+//            case .errorDataDecoding:
+//                print("errorDataDecoding")
+//            case .errorJsonDecoding:
+//                print("errorJsonDecoding")
+//            case .errorInvalidStatusCode:
+//                print("errorInvalidStatusCode")
+//            case .errorNoStatusCode:
+//                print("errorNoStatusCode")
+//            }
+//        }
+//
 //        GetSingleStudentRequest.shared.get(uniqueKey: "1234") { result in
 //            switch result {
 //
@@ -45,8 +47,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print("errorJsonDecoding")
 //            case .errorInvalidStatusCode:
 //                print("errorInvalidStatusCode")
+//            case .errorNoStatusCode:
+//                print("errorNoStatusCode")
 //            }
 //        }
+        
+        let student = NewStudentLocation(uniqueKey: "123456789", firstName: "Test", lastName: "User", mapString: "Bogota Colombia", mediaURL: "https://www.linkedin.com/in/rsaenzi/", latitude: 12.3456, longitude: -98.765)
+        
+        NewStudentLocationRequest.shared.post(newStudent: student) { result in
+            switch result {
+                
+            case .success:
+                print("success")
+            case .errorRequest:
+                print("errorRequest")
+            case .errorDataDecoding:
+                print("errorDataDecoding")
+            case .errorInvalidStatusCode:
+                print("errorInvalidStatusCode")
+            case .errorJsonDecoding:
+                print("errorJsonDecoding")
+            case .errorNoStatusCode:
+                print("errorNoStatusCode")
+            }
+        }
         
         return true
     }

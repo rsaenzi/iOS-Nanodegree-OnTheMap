@@ -10,6 +10,7 @@ import Foundation
 
 typealias GetSingleStudentCompletion = (_ result: GetSingleStudentResult) -> ()
 
+// MARK: Request
 class GetSingleStudentRequest {
     
     static let shared = GetSingleStudentRequest()
@@ -17,9 +18,9 @@ class GetSingleStudentRequest {
     func get(uniqueKey: String, completion: @escaping GetSingleStudentCompletion) {
         
         let endpoint = ApiEndpoint.getSingleStudent(uniqueKey: uniqueKey)
-        Network.shared.request(endpoint) { networkResult in
+        Request.shared.request(endpoint) { result in
             
-            switch networkResult {
+            switch result {
             case .success(let jsonString):
                 
                 guard let studentResults = self.decode(from: jsonString) else {
@@ -37,9 +38,16 @@ class GetSingleStudentRequest {
                 
             case .errorInvalidStatusCode:
                 completion(.errorInvalidStatusCode)
+                
+            case .errorNoStatusCode:
+                completion(.errorNoStatusCode)
             }
         }
     }
+}
+
+// MARK: JSON Decoding
+extension GetSingleStudentRequest {
     
     private func decode(from jsonString: String) -> StudentResults? {
         
@@ -58,12 +66,13 @@ class GetSingleStudentRequest {
     }
 }
 
+// MARK: Result
 enum GetSingleStudentResult {
     case success(studentResults: StudentResults)
     
     case errorRequest
     case errorDataDecoding
     case errorInvalidStatusCode
-    
+    case errorNoStatusCode
     case errorJsonDecoding
 }

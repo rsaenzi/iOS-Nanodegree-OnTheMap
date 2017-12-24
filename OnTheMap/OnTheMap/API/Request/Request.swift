@@ -1,5 +1,5 @@
 //
-//  Network.swift
+//  Request.swift
 //  OnTheMap
 //
 //  Created by Rigoberto Sáenz Imbacuán on 12/23/17.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-typealias NetworkCompletion = (_ result: NetworkResult) -> ()
+typealias RequestCompletion = (_ result: RequestResult) -> ()
 
-class Network {
-    static let shared = Network()
+class Request {
+    static let shared = Request()
     
-    func request(_ endpoint: ApiEndpoint, _ completion: @escaping NetworkCompletion) {
+    func request(_ endpoint: ApiEndpoint, successStatusCode: Int = 200, _ completion: @escaping RequestCompletion) {
         
         print("Request to: \(endpoint.url)")
         let task = URLSession.shared.dataTask(with: endpoint.request) { data, response, error in
@@ -24,7 +24,15 @@ class Network {
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            // Fetch status code from response
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.errorNoStatusCode)
+                return
+            }
+            
+            // Status code must be valid
+            print("Status Code:\(httpResponse.statusCode)")
+            guard httpResponse.statusCode == successStatusCode else {
                 completion(.errorInvalidStatusCode)
                 return
             }
@@ -43,10 +51,11 @@ class Network {
     }
 }
 
-enum NetworkResult {
+enum RequestResult {
     case success(jsonString: String)
     
     case errorRequest
+    case errorNoStatusCode
     case errorInvalidStatusCode
     case errorDataDecoding
 }
