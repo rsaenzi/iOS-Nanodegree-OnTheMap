@@ -27,6 +27,8 @@
 		B1289AF31FF0273800996D8E /* GetSessionIdRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AF21FF0273800996D8E /* GetSessionIdRequest.swift */; };
 		B1289AF51FF0284100996D8E /* UdacitySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AF41FF0284100996D8E /* UdacitySession.swift */; };
 		B1289AF91FF0290F00996D8E /* GetSessionIdResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B1289AF81FF0290F00996D8E /* GetSessionIdResponse.json */; };
+		B1289AFB1FF0320900996D8E /* DeleteSessionIdRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = B1289AFA1FF0320800996D8E /* DeleteSessionIdRequest.json */; };
+		B1289AFD1FF0374E00996D8E /* DeleteSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AFC1FF0374E00996D8E /* DeleteSessionRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		B1289AF21FF0273800996D8E /* GetSessionIdRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSessionIdRequest.swift; sourceTree = "<group>"; };
 		B1289AF41FF0284100996D8E /* UdacitySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacitySession.swift; sourceTree = "<group>"; };
 		B1289AF81FF0290F00996D8E /* GetSessionIdResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSessionIdResponse.json; sourceTree = "<group>"; };
+		B1289AFA1FF0320800996D8E /* DeleteSessionIdRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DeleteSessionIdRequest.json; sourceTree = "<group>"; };
+		B1289AFC1FF0374E00996D8E /* DeleteSessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSessionRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 				B1289AD51FEF391000996D8E /* GetStudentLocationsResponse.json */,
 				B1289AE81FEF64EB00996D8E /* GetSingleStudentResponse.json */,
 				B1289AF81FF0290F00996D8E /* GetSessionIdResponse.json */,
+				B1289AFA1FF0320800996D8E /* DeleteSessionIdRequest.json */,
 			);
 			path = "Json Response";
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				B1289AEE1FEF74A600996D8E /* NewStudentLocationRequest.swift */,
 				B1289AF01FF00ADA00996D8E /* EditStudentLocationRequest.swift */,
 				B1289AF21FF0273800996D8E /* GetSessionIdRequest.swift */,
+				B1289AFC1FF0374E00996D8E /* DeleteSessionRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1289AC31FEF1BC000996D8E /* LaunchScreen.storyboard in Resources */,
+				B1289AFB1FF0320900996D8E /* DeleteSessionIdRequest.json in Resources */,
 				B1289AC01FEF1BC000996D8E /* Assets.xcassets in Resources */,
 				B1289AE51FEF5D1C00996D8E /* LoginViewController.storyboard in Resources */,
 				B1289AF91FF0290F00996D8E /* GetSessionIdResponse.json in Resources */,
@@ -266,6 +273,7 @@
 				B1289AB91FEF1BC000996D8E /* AppDelegate.swift in Sources */,
 				B1289AF51FF0284100996D8E /* UdacitySession.swift in Sources */,
 				B1289ADC1FEF4A9600996D8E /* Request.swift in Sources */,
+				B1289AFD1FF0374E00996D8E /* DeleteSessionRequest.swift in Sources */,
 				B1289AED1FEF6ED700996D8E /* NewStudentLocation.swift in Sources */,
 				B1289AE71FEF63F800996D8E /* GetSingleStudentRequest.swift in Sources */,
 				B1289AEF1FEF74A600996D8E /* NewStudentLocationRequest.swift in Sources */,

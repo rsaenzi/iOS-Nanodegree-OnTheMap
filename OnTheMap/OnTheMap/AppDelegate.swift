@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        GetStudentLocationsRequest.shared.get(limit: 3, skip: nil, order: nil) { result in
+//        GetStudentLocationsRequest.get(limit: 3, skip: nil, order: nil) { result in
 //            switch result {
 //
 //            case .success(let studentResults):
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
 //
-//        GetSingleStudentRequest.shared.get(uniqueKey: "1234") { result in
+//        GetSingleStudentRequest.get(uniqueKey: "1234") { result in
 //            switch result {
 //
 //            case .success(let studentResults):
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        let student = NewStudentLocation(uniqueKey: "123456789", firstName: "Test", lastName: "User", mapString: "Bogota Colombia", mediaURL: "https://www.linkedin.com/in/rsaenzi/", latitude: 12.3456, longitude: -98.765)
 //
-//        NewStudentLocationRequest.shared.post(newStudent: student) { result in
+//        NewStudentLocationRequest.post(newStudent: student) { result in
 //            switch result {
 //
 //            case .success:
@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let objectId = "n375b6vja"
 //        let editFields = ["firstName": "John"]
 //
-//        EditStudentLocationRequest.shared.put(objectId: objectId, editFields: editFields) { result in
+//        EditStudentLocationRequest.put(objectId: objectId, editFields: editFields) { result in
 //            switch result {
 //
 //            case .success:
@@ -93,7 +93,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
-        GetSessionIdRequest.shared.get(username: "rsaenzi", password: "atlanta") { result in
+//        GetSessionIdRequest.post(username: "rsaenzi", password: "atlanta") { result in
+//            switch result {
+//
+//            case .success(let session):
+//                print(session)
+//            case .errorRequest:
+//                print("errorRequest")
+//            case .errorDataDecoding:
+//                print("errorDataDecoding")
+//            case .errorInvalidStatusCode:
+//                print("errorInvalidStatusCode")
+//            case .errorNoStatusCode:
+//                print("errorNoStatusCode")
+//            case .errorJsonDecoding:
+//                print("errorJsonDecoding")
+//            }
+//        }
+        
+        DeleteSessionRequest.post { result in
             switch result {
                 
             case .success(let session):

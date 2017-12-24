@@ -13,9 +13,7 @@ typealias GetSingleStudentCompletion = (_ result: GetSingleStudentResult) -> ()
 // MARK: Request
 class GetSingleStudentRequest {
     
-    static let shared = GetSingleStudentRequest()
-    
-    func get(uniqueKey: String, completion: @escaping GetSingleStudentCompletion) {
+    static func get(uniqueKey: String, completion: @escaping GetSingleStudentCompletion) {
         
         let endpoint = ApiEndpoint.getSingleStudent(uniqueKey: uniqueKey)
         Request.shared.request(endpoint) { result in
@@ -23,7 +21,7 @@ class GetSingleStudentRequest {
             switch result {
             case .success(let jsonString):
                 
-                guard let studentResults = self.decode(from: jsonString) else {
+                guard let studentResults = decode(from: jsonString) else {
                     completion(.errorJsonDecoding)
                     return
                 }
@@ -49,7 +47,7 @@ class GetSingleStudentRequest {
 // MARK: JSON Decoding
 extension GetSingleStudentRequest {
     
-    private func decode(from jsonString: String) -> StudentResults? {
+    private static func decode(from jsonString: String) -> StudentResults? {
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormats.server.formatter)

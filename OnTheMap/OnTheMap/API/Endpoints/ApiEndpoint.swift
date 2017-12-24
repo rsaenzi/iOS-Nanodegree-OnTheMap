@@ -31,7 +31,7 @@ enum ApiEndpoint {
     case getSessionId(username: String, password: String)
     
     /// Delete a session ID from Udacity
-    //case deleteSessionId
+    case deleteSession
     
     /// Retrieve some basic user information from Udacity
     //case getUserData
@@ -50,7 +50,7 @@ extension ApiEndpoint {
         case .getStudentLocations, .getSingleStudent, .newStudentLocation, .editStudentLocation:
             return "parse.udacity.com"
             
-        case .getSessionId:
+        case .getSessionId, .deleteSession:
             return "www.udacity.com"
         }
     }
@@ -64,7 +64,7 @@ extension ApiEndpoint {
         case .editStudentLocation(let objectId, _):
             return "/parse/classes/StudentLocation/\(objectId)"
             
-        case .getSessionId:
+        case .getSessionId, .deleteSession:
             return "/api/session"
         }
     }
@@ -95,7 +95,7 @@ extension ApiEndpoint {
             let whereQuery = "{\"uniqueKey\":\"\(uniqueKey)\"}".urlEscaped
             return [URLQueryItem(name: "where", value: "\(whereQuery)")]
             
-        case .newStudentLocation, .editStudentLocation, .getSessionId:
+        case .newStudentLocation, .editStudentLocation, .getSessionId, .deleteSession:
             return nil
         }
     }
@@ -124,13 +124,16 @@ extension ApiEndpoint {
             
         case .editStudentLocation:
             return "PUT"
+            
+        case .deleteSession:
+            return "DELETE"
         }
     }
     
     private var httpBody: Data? {
         switch self {
             
-        case .getStudentLocations, .getSingleStudent:
+        case .getStudentLocations, .getSingleStudent, .deleteSession:
             return nil
         
         case .newStudentLocation(let student):
@@ -175,6 +178,18 @@ extension ApiEndpoint {
             
         case .getSessionId:
             break
+            
+        case .deleteSession:
+            
+            var xsrfCookie: HTTPCookie? = nil
+            let sharedCookieStorage = HTTPCookieStorage.shared
+            
+            for cookie in sharedCookieStorage.cookies! {
+                if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+            }
+            if let xsrfCookie = xsrfCookie {
+                headers["X-XSRF-TOKEN"] = xsrfCookie.value
+            }
         }
         
         return headers

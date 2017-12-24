@@ -13,9 +13,7 @@ typealias EditStudentLocationCompletion = (_ result: EditStudentLocationResult) 
 // MARK: Request
 class EditStudentLocationRequest {
     
-    static let shared = EditStudentLocationRequest()
-    
-    func put(objectId: String, editFields: [String: String], completion: @escaping EditStudentLocationCompletion) {
+    static func put(objectId: String, editFields: [String: String], completion: @escaping EditStudentLocationCompletion) {
         
         let endpoint = ApiEndpoint.editStudentLocation(objectId: objectId, editFields: editFields)
         Request.shared.request(endpoint) { result in
@@ -23,7 +21,7 @@ class EditStudentLocationRequest {
             switch result {
             case .success(let jsonString):
                 
-//                guard let studentResults = self.decode(from: jsonString) else { // TODO here
+//                guard let studentResults = decode(from: jsonString) else { // TODO here
 //                    completion(.errorJsonDecoding)
 //                    return
 //                }

@@ -13,9 +13,7 @@ typealias GetStudentLocationsCompletion = (_ result: GetStudentLocationsResult) 
 // MARK: Request
 class GetStudentLocationsRequest {
     
-    static let shared = GetStudentLocationsRequest()
-    
-    func get(limit: Int?, skip: Int?, order: String?, completion: @escaping GetStudentLocationsCompletion) {
+    static func get(limit: Int?, skip: Int?, order: String?, completion: @escaping GetStudentLocationsCompletion) {
         
         let endpoint = ApiEndpoint.getStudentLocations(limit: limit, skip: skip, order: order)
         Request.shared.request(endpoint) { result in
@@ -23,7 +21,7 @@ class GetStudentLocationsRequest {
             switch result {
             case .success(let jsonString):
                 
-                guard let studentResults = self.decode(from: jsonString) else {
+                guard let studentResults = decode(from: jsonString) else {
                     completion(.errorJsonDecoding)
                     return
                 }
@@ -49,7 +47,7 @@ class GetStudentLocationsRequest {
 // MARK: JSON Decoding
 extension GetStudentLocationsRequest {
     
-    private func decode(from jsonString: String) -> StudentResults? {
+    private static func decode(from jsonString: String) -> StudentResults? {
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormats.server.formatter)

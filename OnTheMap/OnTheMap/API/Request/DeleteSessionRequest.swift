@@ -1,5 +1,5 @@
 //
-//  GetSessionIdRequest.swift
+//  DeleteSessionRequest.swift
 //  OnTheMap
 //
 //  Created by Rigoberto Sáenz Imbacuán on 12/24/17.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-typealias GetSessionIdCompletion = (_ result: GetSessionIdResult) -> ()
+typealias DeleteSessionCompletion = (_ result: DeleteSessionResult) -> ()
 
 // MARK: Request
-class GetSessionIdRequest {
+class DeleteSessionRequest {
     
-    static func post(username: String, password: String, completion: @escaping GetSessionIdCompletion) {
+    static func post(completion: @escaping DeleteSessionCompletion) {
         
-        let endpoint = ApiEndpoint.getSessionId(username: username, password: password)
+        let endpoint = ApiEndpoint.deleteSession
         Request.shared.request(endpoint) { result in
             
             switch result {
@@ -48,9 +48,9 @@ class GetSessionIdRequest {
 }
 
 // MARK: JSON Decoding
-extension GetSessionIdRequest {
+extension DeleteSessionRequest {
     
-    private static func decode(from jsonString: String) -> UdacitySession? {
+    private static func decode(from jsonString: String) -> UdacityDeletedSession? {
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormats.server.formatter)
@@ -59,7 +59,7 @@ extension GetSessionIdRequest {
             return nil
         }
         
-        guard let object = try? decoder.decode(UdacitySession.self, from: jsonData) else {
+        guard let object = try? decoder.decode(UdacityDeletedSession.self, from: jsonData) else {
             return nil
         }
         
@@ -68,8 +68,8 @@ extension GetSessionIdRequest {
 }
 
 // MARK: Result
-enum GetSessionIdResult {
-    case success(session: UdacitySession)
+enum DeleteSessionResult {
+    case success(session: UdacityDeletedSession)
     
     case errorRequest
     case errorDataDecoding
@@ -77,4 +77,5 @@ enum GetSessionIdResult {
     case errorNoStatusCode
     case errorJsonDecoding
 }
+
 

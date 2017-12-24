@@ -12,10 +12,8 @@ typealias NewStudentLocationCompletion = (_ result: NewStudentLocationResult) ->
 
 // MARK: Request
 class NewStudentLocationRequest {
-    
-    static let shared = NewStudentLocationRequest()
  
-    func post(newStudent: NewStudentLocation, completion: @escaping NewStudentLocationCompletion) {
+    static func post(newStudent: NewStudentLocation, completion: @escaping NewStudentLocationCompletion) {
         
         let endpoint = ApiEndpoint.newStudentLocation(student: newStudent)
         Request.shared.request(endpoint, successStatusCode: 201) { result in
@@ -23,7 +21,7 @@ class NewStudentLocationRequest {
             switch result {
             case .success(let jsonString):
                 
-//                guard let studentResults = self.decode(from: jsonString) else { // TODO here
+//                guard let studentResults = decode(from: jsonString) else { // TODO here
 //                    completion(.errorJsonDecoding)
 //                    return
 //                }

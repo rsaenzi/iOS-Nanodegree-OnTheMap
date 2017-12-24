@@ -22,3 +22,7 @@ struct UdacitySessionInfo: Codable {
     let id: String
     let expiration: Date
 }
+
+struct UdacityDeletedSession: Codable {
+    let session: UdacitySessionInfo
+}
