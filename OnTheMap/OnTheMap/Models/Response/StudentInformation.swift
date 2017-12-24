@@ -1,5 +1,5 @@
 //
-//  StudentResult.swift
+//  StudentInformation.swift
 //  OnTheMap
 //
 //  Created by Rigoberto Sáenz Imbacuán on 12/23/17.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct StudentResult: Codable {
-    let objectId: String
+struct StudentInformation: Codable {
+    let objectId: String?
     let uniqueKey: String?
     let firstName: String?
     let lastName: String?
@@ -17,6 +17,4 @@ struct StudentResult: Codable {
     let mediaURL: String?
     let latitude: Float
     let longitude: Float
-    let createdAt: Date
-    let updatedAt: Date
 }

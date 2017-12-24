@@ -13,7 +13,7 @@ typealias NewStudentLocationCompletion = (_ result: NewStudentLocationResult) ->
 // MARK: Request
 class NewStudentLocationRequest {
  
-    static func post(newStudent: NewStudentLocation, completion: @escaping NewStudentLocationCompletion) {
+    static func post(newStudent: StudentInformation, completion: @escaping NewStudentLocationCompletion) {
         
         let endpoint = ApiEndpoint.newStudentLocation(student: newStudent)
         Request.shared.request(endpoint, successStatusCode: 201) { result in

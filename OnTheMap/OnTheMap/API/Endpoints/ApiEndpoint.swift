@@ -22,7 +22,7 @@ enum ApiEndpoint {
     case getSingleStudent(uniqueKey: String)
     
     /// To create a new student location
-    case newStudentLocation(student: NewStudentLocation)
+    case newStudentLocation(student: StudentInformation)
     
     /// To update an existing student location
     case editStudentLocation(objectId: String, fieldsToEdit: [String: String])

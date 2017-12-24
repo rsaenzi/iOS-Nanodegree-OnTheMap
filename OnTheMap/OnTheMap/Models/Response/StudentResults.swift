@@ -9,5 +9,5 @@
 import Foundation
 
 struct StudentResults: Codable {
-    let results: [StudentResult]
+    let results: [StudentInformation]
 }
