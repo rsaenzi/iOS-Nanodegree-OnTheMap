@@ -8,6 +8,10 @@
 
 import Foundation
 
+// MARK: API Keys
+private let parseAppId = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
+private let parseRestApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
+
 // MARK: Endpoints
 enum ApiEndpoint {
     
@@ -24,7 +28,7 @@ enum ApiEndpoint {
     case editStudentLocation(objectId: String, editFields: [String: String])
     
     /// Get a session ID from Udacity
-    //case getSessionId
+    case getSessionId(username: String, password: String)
     
     /// Delete a session ID from Udacity
     //case deleteSessionId
@@ -45,6 +49,9 @@ extension ApiEndpoint {
             
         case .getStudentLocations, .getSingleStudent, .newStudentLocation, .editStudentLocation:
             return "parse.udacity.com"
+            
+        case .getSessionId:
+            return "www.udacity.com"
         }
     }
     
@@ -56,6 +63,9 @@ extension ApiEndpoint {
             
         case .editStudentLocation(let objectId, _):
             return "/parse/classes/StudentLocation/\(objectId)"
+            
+        case .getSessionId:
+            return "/api/session"
         }
     }
     
@@ -85,7 +95,7 @@ extension ApiEndpoint {
             let whereQuery = "{\"uniqueKey\":\"\(uniqueKey)\"}".urlEscaped
             return [URLQueryItem(name: "where", value: "\(whereQuery)")]
             
-        case .newStudentLocation, .editStudentLocation:
+        case .newStudentLocation, .editStudentLocation, .getSessionId:
             return nil
         }
     }
@@ -109,7 +119,7 @@ extension ApiEndpoint {
         case .getStudentLocations, .getSingleStudent:
             return "GET"
             
-        case .newStudentLocation:
+        case .newStudentLocation, .getSessionId:
             return "POST"
             
         case .editStudentLocation:
@@ -130,7 +140,6 @@ extension ApiEndpoint {
             return jsonString.utf8Encoded
             
         case .editStudentLocation(_, let editFields):
-            
             guard let jsonData = try? JSONSerialization.data(withJSONObject: editFields, options: .prettyPrinted) else {
                 return nil
             }
@@ -139,6 +148,16 @@ extension ApiEndpoint {
                 return nil
             }
             
+            return jsonString.utf8Encoded
+            
+        case .getSessionId(let username, let password):
+            
+            let credentials = SessionCredentials(username: username, password: password)
+            let requestBody = SessionRequest(udacity: credentials)
+            
+            guard let jsonString = encodeToJson(requestBody) else {
+                return nil
+            }
             return jsonString.utf8Encoded
         }
     }
@@ -153,6 +172,9 @@ extension ApiEndpoint {
         case .getStudentLocations, .getSingleStudent, .newStudentLocation, .editStudentLocation:
             headers["X-Parse-Application-Id"] = parseAppId
             headers["X-Parse-REST-API-Key"] = parseRestApiKey
+            
+        case .getSessionId:
+            break
         }
         
         return headers
@@ -170,6 +192,16 @@ extension ApiEndpoint {
         }
         return request as URLRequest
     }
+}
+
+// MARK: JSON Request Objects
+private struct SessionRequest: Codable {
+    let udacity: SessionCredentials
+}
+
+private struct SessionCredentials: Codable {
+    let username: String
+    let password: String
 }
 
 // MARK: JSON Encoding

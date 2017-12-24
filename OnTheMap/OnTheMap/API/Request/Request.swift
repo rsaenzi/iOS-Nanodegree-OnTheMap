@@ -26,7 +26,7 @@ class Request {
         
         // Creates the data task
         let task = URLSession.shared.dataTask(with: endpoint.request) { data, response, error in
-            print("Request from: \(endpoint.request.httpMethod!) \(endpoint.url)")
+            print("Response from: \(endpoint.request.httpMethod!) \(endpoint.url)")
             
             // Detect any request error
             guard error == nil, let data = data else {
