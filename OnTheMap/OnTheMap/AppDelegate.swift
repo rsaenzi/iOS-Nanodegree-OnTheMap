@@ -73,9 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         
 //        let objectId = "n375b6vja"
-//        let editFields = ["firstName": "John"]
+//        let fieldsToEdit = ["firstName": "John"]
 //
-//        EditStudentLocationRequest.put(objectId: objectId, editFields: editFields) { result in
+//        EditStudentLocationRequest.put(objectId: objectId, fieldsToEdit: fieldsToEdit) { result in
 //            switch result {
 //
 //            case .success:
@@ -111,11 +111,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
-        DeleteSessionRequest.post { result in
+//        DeleteSessionRequest.post { result in
+//            switch result {
+//
+//            case .success(let session):
+//                print(session)
+//            case .errorRequest:
+//                print("errorRequest")
+//            case .errorDataDecoding:
+//                print("errorDataDecoding")
+//            case .errorInvalidStatusCode:
+//                print("errorInvalidStatusCode")
+//            case .errorNoStatusCode:
+//                print("errorNoStatusCode")
+//            case .errorJsonDecoding:
+//                print("errorJsonDecoding")
+//            }
+//        }
+        
+        GetUserDataRequest.get(userId: "rdfs3g") { result in
             switch result {
                 
-            case .success(let session):
-                print(session)
+            case .success(let userData):
+                print(userData)
             case .errorRequest:
                 print("errorRequest")
             case .errorDataDecoding:

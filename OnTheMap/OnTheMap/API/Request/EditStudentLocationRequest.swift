@@ -13,9 +13,9 @@ typealias EditStudentLocationCompletion = (_ result: EditStudentLocationResult) 
 // MARK: Request
 class EditStudentLocationRequest {
     
-    static func put(objectId: String, editFields: [String: String], completion: @escaping EditStudentLocationCompletion) {
+    static func put(objectId: String, fieldsToEdit: [String: String], completion: @escaping EditStudentLocationCompletion) {
         
-        let endpoint = ApiEndpoint.editStudentLocation(objectId: objectId, editFields: editFields)
+        let endpoint = ApiEndpoint.editStudentLocation(objectId: objectId, fieldsToEdit: fieldsToEdit)
         Request.shared.request(endpoint) { result in
             
             switch result {

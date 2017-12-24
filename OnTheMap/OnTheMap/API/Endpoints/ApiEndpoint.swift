@@ -25,7 +25,7 @@ enum ApiEndpoint {
     case newStudentLocation(student: NewStudentLocation)
     
     /// To update an existing student location
-    case editStudentLocation(objectId: String, editFields: [String: String])
+    case editStudentLocation(objectId: String, fieldsToEdit: [String: String])
     
     /// Get a session ID from Udacity
     case getSessionId(username: String, password: String)
@@ -34,7 +34,7 @@ enum ApiEndpoint {
     case deleteSession
     
     /// Retrieve some basic user information from Udacity
-    //case getUserData
+    case getUserData(userId: String)
 }
 
 // MARK: URL Components
@@ -50,7 +50,7 @@ extension ApiEndpoint {
         case .getStudentLocations, .getSingleStudent, .newStudentLocation, .editStudentLocation:
             return "parse.udacity.com"
             
-        case .getSessionId, .deleteSession:
+        case .getSessionId, .deleteSession, .getUserData:
             return "www.udacity.com"
         }
     }
@@ -66,6 +66,9 @@ extension ApiEndpoint {
             
         case .getSessionId, .deleteSession:
             return "/api/session"
+            
+        case .getUserData(let userId):
+            return "/api/users/\(userId)"
         }
     }
     
@@ -95,7 +98,7 @@ extension ApiEndpoint {
             let whereQuery = "{\"uniqueKey\":\"\(uniqueKey)\"}".urlEscaped
             return [URLQueryItem(name: "where", value: "\(whereQuery)")]
             
-        case .newStudentLocation, .editStudentLocation, .getSessionId, .deleteSession:
+        case .newStudentLocation, .editStudentLocation, .getSessionId, .deleteSession, .getUserData:
             return nil
         }
     }
@@ -116,7 +119,7 @@ extension ApiEndpoint {
     private var httpMethod: String {
         switch self {
             
-        case .getStudentLocations, .getSingleStudent:
+        case .getStudentLocations, .getSingleStudent, .getUserData:
             return "GET"
             
         case .newStudentLocation, .getSessionId:
@@ -133,7 +136,7 @@ extension ApiEndpoint {
     private var httpBody: Data? {
         switch self {
             
-        case .getStudentLocations, .getSingleStudent, .deleteSession:
+        case .getStudentLocations, .getSingleStudent, .deleteSession, .getUserData:
             return nil
         
         case .newStudentLocation(let student):
@@ -172,12 +175,12 @@ extension ApiEndpoint {
         headers["Content-type"] = "application/json"
         
         switch self {
+        case .getSessionId, .getUserData:
+            break
+            
         case .getStudentLocations, .getSingleStudent, .newStudentLocation, .editStudentLocation:
             headers["X-Parse-Application-Id"] = parseAppId
             headers["X-Parse-REST-API-Key"] = parseRestApiKey
-            
-        case .getSessionId:
-            break
             
         case .deleteSession:
             
