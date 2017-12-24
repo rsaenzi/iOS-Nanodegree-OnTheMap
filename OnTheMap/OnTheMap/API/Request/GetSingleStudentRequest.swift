@@ -34,6 +34,9 @@ class GetSingleStudentRequest {
                 
             case .errorDataDecoding:
                 completion(.errorDataDecoding)
+                
+            case .errorInvalidStatusCode:
+                completion(.errorInvalidStatusCode)
             }
         }
     }
@@ -60,6 +63,7 @@ enum GetSingleStudentResult {
     
     case errorRequest
     case errorDataDecoding
+    case errorInvalidStatusCode
     
     case errorJsonDecoding
 }

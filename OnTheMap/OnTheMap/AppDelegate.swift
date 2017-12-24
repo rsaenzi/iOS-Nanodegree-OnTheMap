@@ -15,9 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-//        GetStudentLocationsRequest.shared.get(limit: 3, skip: nil, order: nil) { result in
+        GetStudentLocationsRequest.shared.get(limit: 3, skip: nil, order: nil) { result in
+            switch result {
+
+            case .success(let studentResults):
+                print(studentResults)
+            case .errorRequest:
+                print("errorRequest")
+            case .errorDataDecoding:
+                print("errorDataDecoding")
+            case .errorJsonDecoding:
+                print("errorJsonDecoding")
+            case .errorInvalidStatusCode:
+                print("errorInvalidStatusCode")
+            }
+        }
+        
+//        GetSingleStudentRequest.shared.get(uniqueKey: "1234") { result in
 //            switch result {
 //
 //            case .success(let studentResults):
@@ -28,22 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print("errorDataDecoding")
 //            case .errorJsonDecoding:
 //                print("errorJsonDecoding")
+//            case .errorInvalidStatusCode:
+//                print("errorInvalidStatusCode")
 //            }
 //        }
         
-        GetSingleStudentRequest.shared.get(uniqueKey: "1234") { result in
-            switch result {
-                
-            case .success(let studentResults):
-                print(studentResults)
-            case .errorRequest:
-                print("errorRequest")
-            case .errorDataDecoding:
-                print("errorDataDecoding")
-            case .errorJsonDecoding:
-                print("errorJsonDecoding")
-            }
-        }
         return true
     }
 

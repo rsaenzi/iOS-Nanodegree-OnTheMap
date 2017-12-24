@@ -34,6 +34,9 @@ class GetStudentLocationsRequest {
                 
             case .errorDataDecoding:
                 completion(.errorDataDecoding)
+                
+            case .errorInvalidStatusCode:
+                completion(.errorInvalidStatusCode)
             }
         }
     }
@@ -60,6 +63,7 @@ enum GetStudentLocationsResult {
     
     case errorRequest
     case errorDataDecoding
+    case errorInvalidStatusCode
     
     case errorJsonDecoding
 }

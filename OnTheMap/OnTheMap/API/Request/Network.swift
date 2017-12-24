@@ -24,6 +24,11 @@ class Network {
                 return
             }
             
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                completion(.errorInvalidStatusCode)
+                return
+            }
+            
             // Transforms raw data into string
             guard let jsonString = String(data: data, encoding: .utf8) else {
                 completion(.errorDataDecoding)
@@ -42,5 +47,6 @@ enum NetworkResult {
     case success(jsonString: String)
     
     case errorRequest
+    case errorInvalidStatusCode
     case errorDataDecoding
 }
