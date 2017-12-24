@@ -10,32 +10,41 @@ import Foundation
 
 // MARK: Endpoints
 enum ApiEndpoint {
-    case studentLocation(limit: Int?, skip: Int?, order: String?)
+    
+    /// To get multiple student locations at one time
+    case getStudentLocations(limit: Int?, skip: Int?, order: String?)
+    
+    /// To get a single student location
+    case getSingleStudent(uniqueKey: String)
 }
 
 // MARK: URL Components
 extension ApiEndpoint {
     
-    var scheme: String {
+    private var scheme: String {
         return "https"
     }
     
-    var host: String {
-        return "parse.udacity.com"
-    }
-    
-    var path: String {
+    private var host: String {
         switch self {
             
-        case .studentLocation:
+        case .getStudentLocations, .getSingleStudent:
+            return "parse.udacity.com"
+        }
+    }
+    
+    private var path: String {
+        switch self {
+            
+        case .getStudentLocations, .getSingleStudent:
             return "/parse/classes/StudentLocation"
         }
     }
     
-    var queryItems: [URLQueryItem]? {
+    private var queryItems: [URLQueryItem]? {
         switch self {
             
-        case .studentLocation(let limit, let skip, let order):
+        case .getStudentLocations(let limit, let skip, let order):
             var queries = [URLQueryItem]()
             
             if let limit = limit {
@@ -52,6 +61,11 @@ extension ApiEndpoint {
                 return nil
             }
             return queries
+            
+            
+        case .getSingleStudent(let uniqueKey):
+            let whereQuery = "{\"uniqueKey\":\"\(uniqueKey)\"}".urlEscaped
+            return [URLQueryItem(name: "where", value: "\(whereQuery)")]
         }
     }
     
@@ -63,36 +77,37 @@ extension ApiEndpoint {
         url.queryItems = self.queryItems
         return url.url!
     }
-    
 }
 
 // MARK: Request Components
 extension ApiEndpoint {
     
-    var httpMethod: String {
+    private var httpMethod: String {
         switch self {
             
-        case .studentLocation:
+        case .getStudentLocations, .getSingleStudent:
             return "GET"
         }
     }
     
-    var httpBody: Data? {
+    private var httpBody: Data? {
         //"".utf8Encoded
         return nil
     }
     
-    var headers: [String: String]? {
+    private var headers: [String: String]? {
+        
+        var headers = [String: String]()
+        headers["Accept"] = "application/json"
+        headers["Content-type"] = "application/json"
+        
         switch self {
-            
-        case .studentLocation:
-            var headers = [String: String]()
-            headers["Accept"] = "application/json"
-            headers["Content-type"] = "application/json"
+        case .getStudentLocations, .getSingleStudent:
             headers["X-Parse-Application-Id"] = parseAppId
             headers["X-Parse-REST-API-Key"] = parseRestApiKey
-            return headers
         }
+        
+        return headers
     }
     
     var request: URLRequest {

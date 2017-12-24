@@ -1,5 +1,5 @@
 //
-//  RequestStudentLocation.swift
+//  GetSingleStudentRequest.swift
 //  OnTheMap
 //
 //  Created by Rigoberto Sáenz Imbacuán on 12/23/17.
@@ -8,14 +8,15 @@
 
 import Foundation
 
-typealias StudentLocationCompletion = (_ result: StudentLocationResult) -> ()
+typealias GetSingleStudentCompletion = (_ result: GetSingleStudentResult) -> ()
 
-class RequestStudentLocation {
-    static let shared = RequestStudentLocation()
+class GetSingleStudentRequest {
     
-    func get(limit: Int?, skip: Int?, order: String?, completion: @escaping StudentLocationCompletion) {
+    static let shared = GetSingleStudentRequest()
+    
+    func get(uniqueKey: String, completion: @escaping GetSingleStudentCompletion) {
         
-        let endpoint = ApiEndpoint.studentLocation(limit: limit, skip: skip, order: order)
+        let endpoint = ApiEndpoint.getSingleStudent(uniqueKey: uniqueKey)
         Network.shared.request(endpoint) { networkResult in
             
             switch networkResult {
@@ -54,7 +55,7 @@ class RequestStudentLocation {
     }
 }
 
-enum StudentLocationResult {
+enum GetSingleStudentResult {
     case success(studentResults: StudentResults)
     
     case errorRequest
