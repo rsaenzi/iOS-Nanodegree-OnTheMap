@@ -10,7 +10,6 @@
 		B1289AB91FEF1BC000996D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AB81FEF1BC000996D8E /* AppDelegate.swift */; };
 		B1289AC01FEF1BC000996D8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1289ABF1FEF1BC000996D8E /* Assets.xcassets */; };
 		B1289AC31FEF1BC000996D8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1289AC11FEF1BC000996D8E /* LaunchScreen.storyboard */; };
-		B1289ACC1FEF1F7D00996D8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289ACB1FEF1F7D00996D8E /* LoginViewController.swift */; };
 		B1289AD31FEF2E8200996D8E /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AD21FEF2E8200996D8E /* ApiEndpoint.swift */; };
 		B1289AD61FEF391000996D8E /* GetStudentLocationsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B1289AD51FEF391000996D8E /* GetStudentLocationsResponse.json */; };
 		B1289AD91FEF449A00996D8E /* GetStudentLocationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AD81FEF449A00996D8E /* GetStudentLocationsRequest.swift */; };
@@ -18,7 +17,7 @@
 		B1289ADE1FEF505600996D8E /* StudentResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289ADD1FEF505600996D8E /* StudentResults.swift */; };
 		B1289AE01FEF510E00996D8E /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289ADF1FEF510E00996D8E /* DateFormats.swift */; };
 		B1289AE31FEF52D300996D8E /* StudentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AE21FEF52D300996D8E /* StudentResult.swift */; };
-		B1289AE51FEF5D1C00996D8E /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1289AE41FEF5D1C00996D8E /* LoginViewController.storyboard */; };
+		B1289AE51FEF5D1C00996D8E /* LoginVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1289AE41FEF5D1C00996D8E /* LoginVC.storyboard */; };
 		B1289AE71FEF63F800996D8E /* GetSingleStudentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AE61FEF63F800996D8E /* GetSingleStudentRequest.swift */; };
 		B1289AE91FEF64EB00996D8E /* GetSingleStudentResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B1289AE81FEF64EB00996D8E /* GetSingleStudentResponse.json */; };
 		B1289AED1FEF6ED700996D8E /* NewStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AEC1FEF6ED700996D8E /* NewStudentLocation.swift */; };
@@ -32,6 +31,16 @@
 		B1289AFF1FF03C0400996D8E /* GetUserDataResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B1289AFE1FF03C0400996D8E /* GetUserDataResponse.json */; };
 		B1289B011FF03C3400996D8E /* GetUserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289B001FF03C3400996D8E /* GetUserDataRequest.swift */; };
 		B1289B031FF03EB800996D8E /* UdacityUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289B021FF03EB800996D8E /* UdacityUserData.swift */; };
+		B18BB9731FF06261007481C5 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18BB9721FF06261007481C5 /* TabBar.storyboard */; };
+		B18BB9791FF06441007481C5 /* SetMapPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BB9781FF06441007481C5 /* SetMapPinVC.swift */; };
+		B18BB97B1FF06448007481C5 /* SetMapPinVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18BB97A1FF06448007481C5 /* SetMapPinVC.storyboard */; };
+		B18BB97D1FF06457007481C5 /* AddLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BB97C1FF06457007481C5 /* AddLocationVC.swift */; };
+		B18BB97F1FF06467007481C5 /* AddLocationVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18BB97E1FF06467007481C5 /* AddLocationVC.storyboard */; };
+		B18BB9811FF06480007481C5 /* LocationsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BB9801FF06480007481C5 /* LocationsListVC.swift */; };
+		B18BB9831FF06488007481C5 /* LocationsListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18BB9821FF06488007481C5 /* LocationsListVC.storyboard */; };
+		B18BB9851FF06496007481C5 /* LocationsMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BB9841FF06496007481C5 /* LocationsMapVC.swift */; };
+		B18BB9871FF0649D007481C5 /* LocationsMapVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18BB9861FF0649D007481C5 /* LocationsMapVC.storyboard */; };
+		B18BB9891FF06514007481C5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BB9881FF06514007481C5 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +49,6 @@
 		B1289ABF1FEF1BC000996D8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1289AC21FEF1BC000996D8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1289AC41FEF1BC000996D8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1289ACB1FEF1F7D00996D8E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1289AD21FEF2E8200996D8E /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		B1289AD51FEF391000996D8E /* GetStudentLocationsResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetStudentLocationsResponse.json; sourceTree = "<group>"; };
 		B1289AD81FEF449A00996D8E /* GetStudentLocationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStudentLocationsRequest.swift; sourceTree = "<group>"; };
@@ -48,7 +56,7 @@
 		B1289ADD1FEF505600996D8E /* StudentResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentResults.swift; sourceTree = "<group>"; };
 		B1289ADF1FEF510E00996D8E /* DateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormats.swift; sourceTree = "<group>"; };
 		B1289AE21FEF52D300996D8E /* StudentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentResult.swift; sourceTree = "<group>"; };
-		B1289AE41FEF5D1C00996D8E /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		B1289AE41FEF5D1C00996D8E /* LoginVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginVC.storyboard; sourceTree = "<group>"; };
 		B1289AE61FEF63F800996D8E /* GetSingleStudentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSingleStudentRequest.swift; sourceTree = "<group>"; };
 		B1289AE81FEF64EB00996D8E /* GetSingleStudentResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSingleStudentResponse.json; sourceTree = "<group>"; };
 		B1289AEC1FEF6ED700996D8E /* NewStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentLocation.swift; sourceTree = "<group>"; };
@@ -62,6 +70,16 @@
 		B1289AFE1FF03C0400996D8E /* GetUserDataResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetUserDataResponse.json; sourceTree = "<group>"; };
 		B1289B001FF03C3400996D8E /* GetUserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataRequest.swift; sourceTree = "<group>"; };
 		B1289B021FF03EB800996D8E /* UdacityUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityUserData.swift; sourceTree = "<group>"; };
+		B18BB9721FF06261007481C5 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		B18BB9781FF06441007481C5 /* SetMapPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMapPinVC.swift; sourceTree = "<group>"; };
+		B18BB97A1FF06448007481C5 /* SetMapPinVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetMapPinVC.storyboard; sourceTree = "<group>"; };
+		B18BB97C1FF06457007481C5 /* AddLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationVC.swift; sourceTree = "<group>"; };
+		B18BB97E1FF06467007481C5 /* AddLocationVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddLocationVC.storyboard; sourceTree = "<group>"; };
+		B18BB9801FF06480007481C5 /* LocationsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListVC.swift; sourceTree = "<group>"; };
+		B18BB9821FF06488007481C5 /* LocationsListVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationsListVC.storyboard; sourceTree = "<group>"; };
+		B18BB9841FF06496007481C5 /* LocationsMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMapVC.swift; sourceTree = "<group>"; };
+		B18BB9861FF0649D007481C5 /* LocationsMapVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationsMapVC.storyboard; sourceTree = "<group>"; };
+		B18BB9881FF06514007481C5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +126,12 @@
 		B1289ACA1FEF1F6000996D8E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1289ACB1FEF1F7D00996D8E /* LoginViewController.swift */,
-				B1289AE41FEF5D1C00996D8E /* LoginViewController.storyboard */,
+				B18BB9771FF062D7007481C5 /* SetMapPin */,
+				B18BB9761FF062AD007481C5 /* AddLocation */,
+				B18BB9751FF06282007481C5 /* LocationsList */,
+				B18BB9741FF0627A007481C5 /* LocationsMap */,
+				B18BB9711FF05F4D007481C5 /* Login */,
+				B18BB9721FF06261007481C5 /* TabBar.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +218,51 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		B18BB9711FF05F4D007481C5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B18BB9881FF06514007481C5 /* LoginVC.swift */,
+				B1289AE41FEF5D1C00996D8E /* LoginVC.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B18BB9741FF0627A007481C5 /* LocationsMap */ = {
+			isa = PBXGroup;
+			children = (
+				B18BB9841FF06496007481C5 /* LocationsMapVC.swift */,
+				B18BB9861FF0649D007481C5 /* LocationsMapVC.storyboard */,
+			);
+			path = LocationsMap;
+			sourceTree = "<group>";
+		};
+		B18BB9751FF06282007481C5 /* LocationsList */ = {
+			isa = PBXGroup;
+			children = (
+				B18BB9801FF06480007481C5 /* LocationsListVC.swift */,
+				B18BB9821FF06488007481C5 /* LocationsListVC.storyboard */,
+			);
+			path = LocationsList;
+			sourceTree = "<group>";
+		};
+		B18BB9761FF062AD007481C5 /* AddLocation */ = {
+			isa = PBXGroup;
+			children = (
+				B18BB97C1FF06457007481C5 /* AddLocationVC.swift */,
+				B18BB97E1FF06467007481C5 /* AddLocationVC.storyboard */,
+			);
+			path = AddLocation;
+			sourceTree = "<group>";
+		};
+		B18BB9771FF062D7007481C5 /* SetMapPin */ = {
+			isa = PBXGroup;
+			children = (
+				B18BB9781FF06441007481C5 /* SetMapPinVC.swift */,
+				B18BB97A1FF06448007481C5 /* SetMapPinVC.storyboard */,
+			);
+			path = SetMapPin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,12 +323,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1289AFF1FF03C0400996D8E /* GetUserDataResponse.json in Resources */,
+				B18BB9731FF06261007481C5 /* TabBar.storyboard in Resources */,
 				B1289AC31FEF1BC000996D8E /* LaunchScreen.storyboard in Resources */,
+				B18BB97B1FF06448007481C5 /* SetMapPinVC.storyboard in Resources */,
+				B18BB97F1FF06467007481C5 /* AddLocationVC.storyboard in Resources */,
 				B1289AFB1FF0320900996D8E /* DeleteSessionIdResponse.json in Resources */,
 				B1289AC01FEF1BC000996D8E /* Assets.xcassets in Resources */,
-				B1289AE51FEF5D1C00996D8E /* LoginViewController.storyboard in Resources */,
+				B1289AE51FEF5D1C00996D8E /* LoginVC.storyboard in Resources */,
 				B1289AF91FF0290F00996D8E /* GetSessionIdResponse.json in Resources */,
 				B1289AE91FEF64EB00996D8E /* GetSingleStudentResponse.json in Resources */,
+				B18BB9871FF0649D007481C5 /* LocationsMapVC.storyboard in Resources */,
+				B18BB9831FF06488007481C5 /* LocationsListVC.storyboard in Resources */,
 				B1289AD61FEF391000996D8E /* GetStudentLocationsResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,13 +345,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18BB9891FF06514007481C5 /* LoginVC.swift in Sources */,
 				B1289AE01FEF510E00996D8E /* DateFormats.swift in Sources */,
 				B1289ADE1FEF505600996D8E /* StudentResults.swift in Sources */,
+				B18BB9791FF06441007481C5 /* SetMapPinVC.swift in Sources */,
 				B1289AE31FEF52D300996D8E /* StudentResult.swift in Sources */,
 				B1289AD91FEF449A00996D8E /* GetStudentLocationsRequest.swift in Sources */,
-				B1289ACC1FEF1F7D00996D8E /* LoginViewController.swift in Sources */,
+				B18BB97D1FF06457007481C5 /* AddLocationVC.swift in Sources */,
 				B1289B011FF03C3400996D8E /* GetUserDataRequest.swift in Sources */,
 				B1289AF31FF0273800996D8E /* GetSessionIdRequest.swift in Sources */,
+				B18BB9811FF06480007481C5 /* LocationsListVC.swift in Sources */,
+				B18BB9851FF06496007481C5 /* LocationsMapVC.swift in Sources */,
 				B1289AF11FF00ADA00996D8E /* EditStudentLocationRequest.swift in Sources */,
 				B1289AB91FEF1BC000996D8E /* AppDelegate.swift in Sources */,
 				B1289AF51FF0284100996D8E /* UdacitySession.swift in Sources */,
