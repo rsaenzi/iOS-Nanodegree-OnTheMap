@@ -24,6 +24,7 @@
 		B1289AE91FEF64EB00996D8E /* GetSingleStudentResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B1289AE81FEF64EB00996D8E /* GetSingleStudentResponse.json */; };
 		B1289AED1FEF6ED700996D8E /* NewStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AEC1FEF6ED700996D8E /* NewStudentLocation.swift */; };
 		B1289AEF1FEF74A600996D8E /* NewStudentLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AEE1FEF74A600996D8E /* NewStudentLocationRequest.swift */; };
+		B1289AF11FF00ADA00996D8E /* EditStudentLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AF01FF00ADA00996D8E /* EditStudentLocationRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B1289AE81FEF64EB00996D8E /* GetSingleStudentResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSingleStudentResponse.json; sourceTree = "<group>"; };
 		B1289AEC1FEF6ED700996D8E /* NewStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentLocation.swift; sourceTree = "<group>"; };
 		B1289AEE1FEF74A600996D8E /* NewStudentLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentLocationRequest.swift; sourceTree = "<group>"; };
+		B1289AF01FF00ADA00996D8E /* EditStudentLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentLocationRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				B1289AD81FEF449A00996D8E /* GetStudentLocationsRequest.swift */,
 				B1289AE61FEF63F800996D8E /* GetSingleStudentRequest.swift */,
 				B1289AEE1FEF74A600996D8E /* NewStudentLocationRequest.swift */,
+				B1289AF01FF00ADA00996D8E /* EditStudentLocationRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				B1289AD91FEF449A00996D8E /* GetStudentLocationsRequest.swift in Sources */,
 				B1289ACC1FEF1F7D00996D8E /* LoginViewController.swift in Sources */,
 				B1289AD01FEF2DE400996D8E /* ApiKeys.swift in Sources */,
+				B1289AF11FF00ADA00996D8E /* EditStudentLocationRequest.swift in Sources */,
 				B1289AB91FEF1BC000996D8E /* AppDelegate.swift in Sources */,
 				B1289ADC1FEF4A9600996D8E /* Request.swift in Sources */,
 				B1289AED1FEF6ED700996D8E /* NewStudentLocation.swift in Sources */,

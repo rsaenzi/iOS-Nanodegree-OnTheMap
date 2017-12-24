@@ -15,25 +15,22 @@ class Request {
     
     func request(_ endpoint: ApiEndpoint, successStatusCode: Int = 200, _ completion: @escaping RequestCompletion) {
         
-        print("Request to: \(endpoint.url)")
+        // Print all request info
+        print("Request to: \(endpoint.request.httpMethod!) \(endpoint.url)")
+        if let headers = endpoint.request.allHTTPHeaderFields {
+            print("Headers: \(headers)")
+        }
+        if let rawBody = endpoint.request.httpBody, let body = String(data: rawBody, encoding: .utf8) {
+            print("Body: \(body)")
+        }
+        
+        // Creates the data task
         let task = URLSession.shared.dataTask(with: endpoint.request) { data, response, error in
+            print("Request from: \(endpoint.request.httpMethod!) \(endpoint.url)")
             
             // Detect any request error
             guard error == nil, let data = data else {
                 completion(.errorRequest)
-                return
-            }
-            
-            // Fetch status code from response
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(.errorNoStatusCode)
-                return
-            }
-            
-            // Status code must be valid
-            print("Status Code:\(httpResponse.statusCode)")
-            guard httpResponse.statusCode == successStatusCode else {
-                completion(.errorInvalidStatusCode)
                 return
             }
             
@@ -42,11 +39,26 @@ class Request {
                 completion(.errorDataDecoding)
                 return
             }
+            print("Json String:\n\(jsonString)")
+            
+            // Fetch status code from response
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.errorNoStatusCode)
+                return
+            }
+            print("Status Code:\(httpResponse.statusCode)")
+            
+            // Status code must be valid
+            guard httpResponse.statusCode == successStatusCode else {
+                completion(.errorInvalidStatusCode)
+                return
+            }
             
             // Return the json string
-            print("Response:\n\(jsonString)")
             completion(.success(jsonString: jsonString))
         }
+        
+        // Start the data task
         task.resume()
     }
 }

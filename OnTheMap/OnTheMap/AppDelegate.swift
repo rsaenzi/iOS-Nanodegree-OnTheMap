@@ -52,9 +52,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
-        let student = NewStudentLocation(uniqueKey: "123456789", firstName: "Test", lastName: "User", mapString: "Bogota Colombia", mediaURL: "https://www.linkedin.com/in/rsaenzi/", latitude: 12.3456, longitude: -98.765)
+//        let student = NewStudentLocation(uniqueKey: "123456789", firstName: "Test", lastName: "User", mapString: "Bogota Colombia", mediaURL: "https://www.linkedin.com/in/rsaenzi/", latitude: 12.3456, longitude: -98.765)
+//
+//        NewStudentLocationRequest.shared.post(newStudent: student) { result in
+//            switch result {
+//
+//            case .success:
+//                print("success")
+//            case .errorRequest:
+//                print("errorRequest")
+//            case .errorDataDecoding:
+//                print("errorDataDecoding")
+//            case .errorInvalidStatusCode:
+//                print("errorInvalidStatusCode")
+//            case .errorJsonDecoding:
+//                print("errorJsonDecoding")
+//            case .errorNoStatusCode:
+//                print("errorNoStatusCode")
+//            }
+//        }
         
-        NewStudentLocationRequest.shared.post(newStudent: student) { result in
+        //let student = StudentResult(objectId: "n37b539n2", uniqueKey: "123456789", firstName: "Test", lastName: "User", mapString: "Bogota Colombia", mediaURL: "https://www.linkedin.com/in/rsaenzi/", latitude: 12.3456, longitude: -98.765, createdAt: Date(), updatedAt: Date())
+        
+        let objectId = "n375b6vja"
+        let editFields = ["firstName": "John"]
+        
+        EditStudentLocationRequest.shared.put(objectId: objectId, editFields: editFields) { result in
             switch result {
                 
             case .success:

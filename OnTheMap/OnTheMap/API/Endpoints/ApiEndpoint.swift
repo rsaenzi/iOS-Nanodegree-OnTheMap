@@ -19,6 +19,18 @@ enum ApiEndpoint {
     
     /// To create a new student location
     case newStudentLocation(student: NewStudentLocation)
+    
+    /// To update an existing student location
+    case editStudentLocation(objectId: String, editFields: [String: String])
+    
+    /// Get a session ID from Udacity
+    //case getSessionId
+    
+    /// Delete a session ID from Udacity
+    //case deleteSessionId
+    
+    /// Retrieve some basic user information from Udacity
+    //case getUserData
 }
 
 // MARK: URL Components
@@ -31,7 +43,7 @@ extension ApiEndpoint {
     private var host: String {
         switch self {
             
-        case .getStudentLocations, .getSingleStudent, .newStudentLocation:
+        case .getStudentLocations, .getSingleStudent, .newStudentLocation, .editStudentLocation:
             return "parse.udacity.com"
         }
     }
@@ -41,6 +53,9 @@ extension ApiEndpoint {
             
         case .getStudentLocations, .getSingleStudent, .newStudentLocation:
             return "/parse/classes/StudentLocation"
+            
+        case .editStudentLocation(let objectId, _):
+            return "/parse/classes/StudentLocation/\(objectId)"
         }
     }
     
@@ -70,7 +85,7 @@ extension ApiEndpoint {
             let whereQuery = "{\"uniqueKey\":\"\(uniqueKey)\"}".urlEscaped
             return [URLQueryItem(name: "where", value: "\(whereQuery)")]
             
-        case .newStudentLocation:
+        case .newStudentLocation, .editStudentLocation:
             return nil
         }
     }
@@ -96,6 +111,9 @@ extension ApiEndpoint {
             
         case .newStudentLocation:
             return "POST"
+            
+        case .editStudentLocation:
+            return "PUT"
         }
     }
     
@@ -106,10 +124,21 @@ extension ApiEndpoint {
             return nil
         
         case .newStudentLocation(let student):
-            
             guard let jsonString = encodeToJson(student) else {
                 return nil
             }
+            return jsonString.utf8Encoded
+            
+        case .editStudentLocation(_, let editFields):
+            
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: editFields, options: .prettyPrinted) else {
+                return nil
+            }
+            
+            guard let jsonString = String(data: jsonData, encoding: .utf8) else {
+                return nil
+            }
+            
             return jsonString.utf8Encoded
         }
     }
@@ -121,7 +150,7 @@ extension ApiEndpoint {
         headers["Content-type"] = "application/json"
         
         switch self {
-        case .getStudentLocations, .getSingleStudent, .newStudentLocation:
+        case .getStudentLocations, .getSingleStudent, .newStudentLocation, .editStudentLocation:
             headers["X-Parse-Application-Id"] = parseAppId
             headers["X-Parse-REST-API-Key"] = parseRestApiKey
         }
