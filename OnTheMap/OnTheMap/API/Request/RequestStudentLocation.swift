@@ -13,9 +13,9 @@ typealias StudentLocationCompletion = (_ result: StudentLocationResult) -> ()
 class RequestStudentLocation {
     static let shared = RequestStudentLocation()
     
-    func get(completion: @escaping StudentLocationCompletion) {
+    func get(limit: Int?, skip: Int?, order: String?, completion: @escaping StudentLocationCompletion) {
         
-        let endpoint = ApiEndpoint.studentLocation(limit: 3, skip: nil, order: nil)
+        let endpoint = ApiEndpoint.studentLocation(limit: limit, skip: skip, order: order)
         Network.shared.request(endpoint) { networkResult in
             
             switch networkResult {
