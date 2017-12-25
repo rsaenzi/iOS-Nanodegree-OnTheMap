@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct StudentResults: Codable {
+    let results: [StudentInformation]
+}
+
 struct StudentInformation: Codable {
     let objectId: String?
     let uniqueKey: String?

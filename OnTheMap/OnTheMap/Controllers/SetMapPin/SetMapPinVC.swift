@@ -64,14 +64,4 @@ class SetMapPinVC: UIViewController {
     private func waitingMode(enable: Bool) {
         waitingView.isHidden = !enable
     }
-    
-    private func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let actionOk = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(actionOk)
-        present(alert, animated: true)
-    }
-}
-
-extension SetMapPinVC: MKMapViewDelegate {
 }

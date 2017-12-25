@@ -14,7 +14,6 @@
 		B1289AD61FEF391000996D8E /* GetStudentLocationsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B1289AD51FEF391000996D8E /* GetStudentLocationsResponse.json */; };
 		B1289AD91FEF449A00996D8E /* GetStudentLocationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AD81FEF449A00996D8E /* GetStudentLocationsRequest.swift */; };
 		B1289ADC1FEF4A9600996D8E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289ADB1FEF4A9600996D8E /* Request.swift */; };
-		B1289ADE1FEF505600996D8E /* StudentResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289ADD1FEF505600996D8E /* StudentResults.swift */; };
 		B1289AE01FEF510E00996D8E /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289ADF1FEF510E00996D8E /* DateFormats.swift */; };
 		B1289AE31FEF52D300996D8E /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289AE21FEF52D300996D8E /* StudentInformation.swift */; };
 		B1289AE51FEF5D1C00996D8E /* LoginVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1289AE41FEF5D1C00996D8E /* LoginVC.storyboard */; };
@@ -56,7 +55,6 @@
 		B1289AD51FEF391000996D8E /* GetStudentLocationsResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetStudentLocationsResponse.json; sourceTree = "<group>"; };
 		B1289AD81FEF449A00996D8E /* GetStudentLocationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStudentLocationsRequest.swift; sourceTree = "<group>"; };
 		B1289ADB1FEF4A9600996D8E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		B1289ADD1FEF505600996D8E /* StudentResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentResults.swift; sourceTree = "<group>"; };
 		B1289ADF1FEF510E00996D8E /* DateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormats.swift; sourceTree = "<group>"; };
 		B1289AE21FEF52D300996D8E /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		B1289AE41FEF5D1C00996D8E /* LoginVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginVC.storyboard; sourceTree = "<group>"; };
@@ -157,8 +155,8 @@
 		B1289ACE1FEF2DBF00996D8E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B1289AEA1FEF6E9A00996D8E /* Response */,
 				B18BB98A1FF06D5D007481C5 /* Model.swift */,
+				B1289AEA1FEF6E9A00996D8E /* Response */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,7 +207,6 @@
 		B1289AEA1FEF6E9A00996D8E /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				B1289ADD1FEF505600996D8E /* StudentResults.swift */,
 				B1289AE21FEF52D300996D8E /* StudentInformation.swift */,
 				B1289AF41FF0284100996D8E /* UdacitySession.swift */,
 				B1289B021FF03EB800996D8E /* UdacityUserData.swift */,
@@ -366,7 +363,6 @@
 				B18BB9891FF06514007481C5 /* LoginVC.swift in Sources */,
 				B155EE481FF0DB0D00445E5A /* UIViewController+Load.swift in Sources */,
 				B1289AE01FEF510E00996D8E /* DateFormats.swift in Sources */,
-				B1289ADE1FEF505600996D8E /* StudentResults.swift in Sources */,
 				B18BB9791FF06441007481C5 /* SetMapPinVC.swift in Sources */,
 				B1289AE31FEF52D300996D8E /* StudentInformation.swift in Sources */,
 				B1289AD91FEF449A00996D8E /* GetStudentLocationsRequest.swift in Sources */,

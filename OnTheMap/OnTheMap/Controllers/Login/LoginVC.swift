@@ -18,10 +18,6 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         waitingMode(enable: false)
-        
-        // TODO: Temporal
-        textfieldUsername.text = "beto456789@gmail.com"
-        textfieldPassword.text = "Unity5869"
     }
     
     @IBAction func onTapLogin(_ sender: UIButton, forEvent event: UIEvent) {
@@ -104,13 +100,6 @@ class LoginVC: UIViewController {
                 self.showAlert("Error fetching student locations")
             }
         }
-    }
-    
-    private func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let actionOk = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(actionOk)
-        present(alert, animated: true)
     }
     
     private func waitingMode(enable: Bool) {

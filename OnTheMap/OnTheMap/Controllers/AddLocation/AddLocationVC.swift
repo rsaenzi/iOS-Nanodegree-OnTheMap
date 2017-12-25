@@ -93,11 +93,4 @@ class AddLocationVC: UIViewController {
         
         buttonCancel.isEnabled = !enable
     }
-    
-    private func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let actionOk = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(actionOk)
-        present(alert, animated: true)
-    }
 }

@@ -19,13 +19,7 @@ class EditStudentLocationRequest {
         Request.shared.request(endpoint) { result in
             
             switch result {
-            case .success(let jsonString, let statusCode):
-                
-//                guard let studentResults = decode(from: jsonString) else { // TODO here
-//                    call(completion, returning: .errorJsonDecoding)
-//                    return
-//                }
-                
+            case .success:
                 call(completion, returning: .success)
                 
             case .errorRequest:

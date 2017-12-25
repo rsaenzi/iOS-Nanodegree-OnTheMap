@@ -60,7 +60,7 @@ class LocationsMapVC: UIViewController {
         DeleteSessionRequest.post { result in
             switch result {
                 
-            case .success(let session):
+            case .success:
                 
                 Model.shared.session = nil
                 Model.shared.set(students: [])
@@ -80,13 +80,6 @@ class LocationsMapVC: UIViewController {
         buttonLogout.isEnabled = !enable
         buttonRefresh.isEnabled = !enable
         buttonAdd.isEnabled = !enable
-    }
-    
-    private func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let actionOk = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(actionOk)
-        present(alert, animated: true)
     }
 }
 

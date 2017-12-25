@@ -19,7 +19,7 @@ class GetStudentLocationsRequest {
         Request.shared.request(endpoint) { result in
             
             switch result {
-            case .success(let jsonString, let statusCode):
+            case .success(let jsonString, _):
                 
                 guard let locations = decode(from: jsonString) else {
                     call(completion, returning: .errorJsonDecoding)

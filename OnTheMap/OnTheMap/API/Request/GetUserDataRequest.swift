@@ -19,7 +19,7 @@ class GetUserDataRequest {
         Request.shared.request(endpoint) { result in
             
             switch result {
-            case .success(let jsonString, let statusCode):
+            case .success(let jsonString, _):
                 
                 // We need to delete the first 5 characters, according to Udacity API documentation
                 let cleanJsonString = String(jsonString.dropFirst(5))
@@ -87,5 +87,3 @@ enum GetUserDataResult {
     case errorNoStatusCode
     case errorJsonDecoding
 }
-
-

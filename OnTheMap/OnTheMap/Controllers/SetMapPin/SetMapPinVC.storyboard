@@ -20,9 +20,6 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qca-qp-IWR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <connections>
-                                    <outlet property="delegate" destination="sBL-JL-SRw" id="U76-XQ-MPB"/>
-                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihM-kR-Kmd">
                                 <rect key="frame" x="24" y="391" width="272" height="40"/>
