@@ -21,6 +21,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nsq-qH-HvA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Uzd-9d-9e6" id="ZMd-St-bkp"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,18 +36,31 @@
                         <viewLayoutGuide key="safeArea" id="5Gj-c7-Nhe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Locations Map" id="gAU-xa-2Kh">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="lKe-IG-VNp"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="lKe-IG-VNp">
+                            <connections>
+                                <action selector="onTapLogout:" destination="Uzd-9d-9e6" id="uhK-2s-SRQ"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="ygs-hV-xBF">
                                 <connections>
                                     <segue destination="6Yp-wW-rtn" kind="presentation" id="0Gk-F8-7Ou"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="cR7-Lb-tZf"/>
+                            <barButtonItem systemItem="refresh" id="cR7-Lb-tZf">
+                                <connections>
+                                    <action selector="onTapRefresh:" destination="Uzd-9d-9e6" id="AEJ-Xd-bgI"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="buttonLogout" destination="lKe-IG-VNp" id="hZ7-tn-MNT"/>
+                        <outlet property="buttonRefresh" destination="cR7-Lb-tZf" id="H76-7f-cPE"/>
+                        <outlet property="map" destination="Nsq-qH-HvA" id="cHm-8G-l3h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZS-3U-8BT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

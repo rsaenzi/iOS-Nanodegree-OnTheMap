@@ -11,8 +11,8 @@ import MapKit
 
 class SetMapPinVC: UIViewController {
     
+    @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var buttonFinish: UIButton!
-    @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func onTapFinish(_ sender: UIButton, forEvent event: UIEvent) {
         

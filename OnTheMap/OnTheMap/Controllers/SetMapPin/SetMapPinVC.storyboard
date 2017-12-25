@@ -55,7 +55,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="buttonFinish" destination="ihM-kR-Kmd" id="HCM-wO-7nw"/>
-                        <outlet property="mapView" destination="Qca-qp-IWR" id="VyJ-XS-gij"/>
+                        <outlet property="map" destination="Qca-qp-IWR" id="zyx-Vr-LSU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJg-7t-fOY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,7 +7,21 @@
 //
 
 import UIKit
+import MapKit
 
 class LocationsMapVC: UIViewController {
+    
+    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var buttonLogout: UIBarButtonItem!
+    @IBOutlet weak var buttonRefresh: UIBarButtonItem!
+    
+    @IBAction func onTapLogout(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func onTapRefresh(_ sender: UIBarButtonItem) {
+    }
+}
+
+extension LocationsMapVC: MKMapViewDelegate {
     
 }
