@@ -30,6 +30,7 @@
 		B1289AFF1FF03C0400996D8E /* GetUserDataResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B1289AFE1FF03C0400996D8E /* GetUserDataResponse.json */; };
 		B1289B011FF03C3400996D8E /* GetUserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289B001FF03C3400996D8E /* GetUserDataRequest.swift */; };
 		B1289B031FF03EB800996D8E /* UdacityUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1289B021FF03EB800996D8E /* UdacityUserData.swift */; };
+		B155EE451FF0A56000445E5A /* LocationsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155EE441FF0A56000445E5A /* LocationsListCell.swift */; };
 		B18BB9731FF06261007481C5 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18BB9721FF06261007481C5 /* TabBar.storyboard */; };
 		B18BB9791FF06441007481C5 /* SetMapPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BB9781FF06441007481C5 /* SetMapPinVC.swift */; };
 		B18BB97B1FF06448007481C5 /* SetMapPinVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18BB97A1FF06448007481C5 /* SetMapPinVC.storyboard */; };
@@ -69,6 +70,7 @@
 		B1289AFE1FF03C0400996D8E /* GetUserDataResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetUserDataResponse.json; sourceTree = "<group>"; };
 		B1289B001FF03C3400996D8E /* GetUserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataRequest.swift; sourceTree = "<group>"; };
 		B1289B021FF03EB800996D8E /* UdacityUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityUserData.swift; sourceTree = "<group>"; };
+		B155EE441FF0A56000445E5A /* LocationsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListCell.swift; sourceTree = "<group>"; };
 		B18BB9721FF06261007481C5 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		B18BB9781FF06441007481C5 /* SetMapPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMapPinVC.swift; sourceTree = "<group>"; };
 		B18BB97A1FF06448007481C5 /* SetMapPinVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetMapPinVC.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,14 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		B155EE431FF0A54C00445E5A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B155EE441FF0A56000445E5A /* LocationsListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		B18BB9711FF05F4D007481C5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 		B18BB9751FF06282007481C5 /* LocationsList */ = {
 			isa = PBXGroup;
 			children = (
+				B155EE431FF0A54C00445E5A /* Cell */,
 				B18BB9801FF06480007481C5 /* LocationsListVC.swift */,
 				B18BB9821FF06488007481C5 /* LocationsListVC.storyboard */,
 			);
@@ -349,6 +360,7 @@
 				B1289AF31FF0273800996D8E /* GetSessionIdRequest.swift in Sources */,
 				B18BB9811FF06480007481C5 /* LocationsListVC.swift in Sources */,
 				B18BB9851FF06496007481C5 /* LocationsMapVC.swift in Sources */,
+				B155EE451FF0A56000445E5A /* LocationsListCell.swift in Sources */,
 				B1289AF11FF00ADA00996D8E /* EditStudentLocationRequest.swift in Sources */,
 				B1289AB91FEF1BC000996D8E /* AppDelegate.swift in Sources */,
 				B1289AF51FF0284100996D8E /* UdacitySession.swift in Sources */,
