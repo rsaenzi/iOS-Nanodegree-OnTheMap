@@ -15,7 +15,7 @@ class SetMapPinVC: UIViewController {
     @IBOutlet weak var buttonFinish: UIButton!
     
     @IBAction func onTapFinish(_ sender: UIButton, forEvent event: UIEvent) {
-        
+        navigationController?.dismiss(animated: true)
     }
 }
 
