@@ -27,6 +27,18 @@ extension LocationsListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let student = Model.shared.students[indexPath.row]
+        
+        guard let link = student.mediaURL, let url = URL(string: link),
+                UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:])
+    }
 }
 
 extension LocationsListVC: UITableViewDataSource {

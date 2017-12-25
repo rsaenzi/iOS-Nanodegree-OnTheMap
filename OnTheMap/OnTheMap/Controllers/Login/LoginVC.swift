@@ -39,8 +39,8 @@ class LoginVC: UIViewController {
     @IBAction func onTapSignUp(_ sender: UIButton, forEvent event: UIEvent) {
         
         guard let url = URL(string: "https://www.udacity.com/account/auth#!/signup"),
-            UIApplication.shared.canOpenURL(url) else {
-                return
+                UIApplication.shared.canOpenURL(url) else {
+            return
         }
         UIApplication.shared.open(url, options: [:])
     }
