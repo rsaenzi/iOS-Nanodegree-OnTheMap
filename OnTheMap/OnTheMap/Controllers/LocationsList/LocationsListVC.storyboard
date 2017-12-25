@@ -47,11 +47,13 @@
             </objects>
             <point key="canvasLocation" x="376.875" y="97.183098591549296"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Locations-->
         <scene sceneID="ZvV-xr-xYd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WsG-7b-T11" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Locations" image="icon_listview-selected" id="w4W-RO-tjW"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="2c1-Es-UR5">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -66,4 +68,7 @@
             <point key="canvasLocation" x="-437" y="97"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_listview-selected" width="75" height="50"/>
+    </resources>
 </document>

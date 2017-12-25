@@ -129,23 +129,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
-        GetUserDataRequest.get(userId: "rdfs3g") { result in
-            switch result {
-                
-            case .success(let userData):
-                print(userData)
-            case .errorRequest:
-                print("errorRequest")
-            case .errorDataDecoding:
-                print("errorDataDecoding")
-            case .errorInvalidStatusCode:
-                print("errorInvalidStatusCode")
-            case .errorNoStatusCode:
-                print("errorNoStatusCode")
-            case .errorJsonDecoding:
-                print("errorJsonDecoding")
-            }
-        }
+//        GetUserDataRequest.get(userId: "rdfs3g") { result in
+//            switch result {
+//
+//            case .success(let userData):
+//                print(userData)
+//            case .errorRequest:
+//                print("errorRequest")
+//            case .errorDataDecoding:
+//                print("errorDataDecoding")
+//            case .errorInvalidStatusCode:
+//                print("errorInvalidStatusCode")
+//            case .errorNoStatusCode:
+//                print("errorNoStatusCode")
+//            case .errorJsonDecoding:
+//                print("errorJsonDecoding")
+//            }
+//        }
 
         return true
     }
