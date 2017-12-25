@@ -15,6 +15,6 @@ class AddLocationVC: UIViewController {
     @IBOutlet weak var textfieldWebsite: UITextField!
     
     @IBAction func onTapCancel(_ sender: UIBarButtonItem) {
-        
+        dismiss(animated: true)
     }
 }

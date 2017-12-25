@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Locations Map-->
+        <!--On The Map-->
         <scene sceneID="4Pz-9T-R6s">
             <objects>
                 <viewController storyboardIdentifier="LocationsMapVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uzd-9d-9e6" customClass="LocationsMapVC" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Gj-c7-Nhe"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Locations Map" id="gAU-xa-2Kh">
+                    <navigationItem key="navigationItem" title="On The Map" id="gAU-xa-2Kh">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="lKe-IG-VNp">
                             <connections>
                                 <action selector="onTapLogout:" destination="Uzd-9d-9e6" id="uhK-2s-SRQ"/>

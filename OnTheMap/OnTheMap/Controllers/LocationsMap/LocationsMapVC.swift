@@ -16,6 +16,7 @@ class LocationsMapVC: UIViewController {
     @IBOutlet weak var buttonRefresh: UIBarButtonItem!
     
     @IBAction func onTapLogout(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
     
     @IBAction func onTapRefresh(_ sender: UIBarButtonItem) {
