@@ -20,6 +20,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qca-qp-IWR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sBL-JL-SRw" id="U76-XQ-MPB"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihM-kR-Kmd">
                                 <rect key="frame" x="24" y="391" width="272" height="40"/>
@@ -30,6 +33,9 @@
                                 <state key="normal" title="Finish">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapFinish:forEvent:" destination="sBL-JL-SRw" eventType="touchUpInside" id="vWM-gn-pio"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.71792869380000002" green="0.9367005249" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,6 +53,10 @@
                     <navigationItem key="navigationItem" title="Add Location" id="4gF-pu-brZ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="buttonFinish" destination="ihM-kR-Kmd" id="HCM-wO-7nw"/>
+                        <outlet property="mapView" destination="Qca-qp-IWR" id="VyJ-XS-gij"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJg-7t-fOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
