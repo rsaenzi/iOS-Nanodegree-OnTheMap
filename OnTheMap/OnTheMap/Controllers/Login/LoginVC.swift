@@ -69,7 +69,7 @@ class LoginVC: UIViewController {
     
     private func getStudentLocations() {
         
-        GetStudentLocationsRequest.get(limit: 100, skip: nil, order: nil) { result in
+        GetStudentLocationsRequest.get(limit: 100, skip: nil, order: "-createdAt") { result in
             switch result {
                 
             case .success(let studentLocations):
