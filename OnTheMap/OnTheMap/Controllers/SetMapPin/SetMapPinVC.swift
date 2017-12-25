@@ -15,6 +15,8 @@ class SetMapPinVC: UIViewController {
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var buttonFinish: UIButton!
     
+    var geocodedLocation: CLLocation?
+    
     override func viewDidLoad() {
         waitingMode(enable: false)
     }

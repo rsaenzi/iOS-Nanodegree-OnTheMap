@@ -68,7 +68,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iFx-pg-2sn"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Location" id="4gF-pu-brZ"/>
+                    <navigationItem key="navigationItem" title="Add Location" id="4gF-pu-brZ">
+                        <barButtonItem key="backBarButtonItem" title="   " id="4KI-mr-48R"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
