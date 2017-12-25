@@ -15,21 +15,63 @@ class SetMapPinVC: UIViewController {
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var buttonFinish: UIButton!
     
-    var geocodedLocation: CLLocation?
+    var locationName = ""
+    var profileURL = ""
+    var geocodedLocation = CLLocationCoordinate2D()
     
     override func viewDidLoad() {
         waitingMode(enable: false)
+        
+        let point = MKPointAnnotation()
+        point.title = locationName
+        point.coordinate = geocodedLocation
+        map.addAnnotation(point)
     }
     
     @IBAction func onTapFinish(_ sender: UIButton, forEvent event: UIEvent) {
-        navigationController?.dismiss(animated: true)
+        addStudent()
+    }
+    
+    private func addStudent() {
+        
+        let newLocation = StudentInformation(
+            objectId: nil,
+            uniqueKey: Model.shared.session?.account.key,
+            firstName: "Rigo Bogota",
+            lastName: "Saenz Colombia",
+            mapString: locationName,
+            mediaURL: profileURL,
+            latitude: geocodedLocation.latitude,
+            longitude: geocodedLocation.longitude)
+        
+        waitingMode(enable: true)
+        
+        NewStudentLocationRequest.post(newStudent: newLocation) { result in
+            
+            self.waitingMode(enable: false)
+            
+            switch result {
+                
+            case .success:
+                self.navigationController?.dismiss(animated: true)
+                
+            default:
+                self.showAlert("Error on adding student location")
+            }
+        }
     }
     
     private func waitingMode(enable: Bool) {
         waitingView.isHidden = !enable
     }
+    
+    private func showAlert(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(actionOk)
+        present(alert, animated: true)
+    }
 }
 
 extension SetMapPinVC: MKMapViewDelegate {
-    
 }

@@ -17,6 +17,10 @@ class AddLocationVC: UIViewController {
     @IBOutlet weak var textfieldWebsite: UITextField!
     @IBOutlet weak var buttonFind: UIButton!
     
+    private var locationName = ""
+    private var profileURL = ""
+    private var geocodedLocation = CLLocationCoordinate2D()
+    
     override func viewDidLoad() {
         waitingMode(enable: false)
     }
@@ -35,10 +39,10 @@ class AddLocationVC: UIViewController {
             showAlert("Please enter a valid URL")
             return
         }
-        getCoordinates(from: locationName)
+        getCoordinates(from: locationName, profileURL)
     }
     
-    private func getCoordinates(from locationName: String) {
+    private func getCoordinates(from locationName: String, _ profileURL: String) {
         
         waitingMode(enable: true)
         
@@ -62,48 +66,26 @@ class AddLocationVC: UIViewController {
                 return
             }
             
-            self.performSegue(withIdentifier: "GoToSetMapPin", sender: location)
+            self.locationName = locationName
+            self.profileURL = profileURL
+            self.geocodedLocation = location.coordinate
+            
+            self.performSegue(withIdentifier: "GoToSetMapPin", sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard segue.identifier == "GoToSetMapPin",
-            let screen = segue.destination as? SetMapPinVC,
-            let location = sender as? CLLocation else {
+            let screen = segue.destination as? SetMapPinVC else {
                 
             showAlert("Error when trying to display the geocoded location")
             return
         }
-        screen.geocodedLocation = location
-    }
-    
-    private func addStudent(locationName: String, profileURL: String) {
         
-//        waitingMode(enable: true)
-//
-//        let newLocation = StudentInformation(
-//            objectId: nil,
-//            uniqueKey: Model.shared.session?.account.key,
-//            firstName: "",
-//            lastName: "",
-//            mapString: locationName,
-//            mediaURL: profileURL,
-//            latitude: 0.0,
-//            longitude: 0.0)
-//
-//        NewStudentLocationRequest.post(newStudent: newLocation) { result in
-//            self.waitingMode(enable: false)
-//
-//            switch result {
-//
-//            case .success:
-//                self.performSegue(withIdentifier: "", sender: self)
-//
-//            default:
-//                self.showAlert("Error on Login")
-//            }
-//        }
+        screen.locationName = locationName
+        screen.profileURL = profileURL
+        screen.geocodedLocation = geocodedLocation
     }
     
     private func waitingMode(enable: Bool) {
