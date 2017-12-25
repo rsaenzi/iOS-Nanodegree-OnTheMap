@@ -22,24 +22,30 @@ class NewStudentLocationRequest {
             case .success(let jsonString):
                 
 //                guard let studentResults = decode(from: jsonString) else { // TODO here
-//                    completion(.errorJsonDecoding)
+//                    call(completion, returning: .errorJsonDecoding)
 //                    return
 //                }
                 
-                completion(.success)
+                call(completion, returning: .success)
                 
             case .errorRequest:
-                completion(.errorRequest)
+                call(completion, returning: .errorRequest)
                 
             case .errorDataDecoding:
-                completion(.errorDataDecoding)
+                call(completion, returning: .errorDataDecoding)
                 
             case .errorInvalidStatusCode:
-                completion(.errorInvalidStatusCode)
+                call(completion, returning: .errorInvalidStatusCode)
                 
             case .errorNoStatusCode:
-                completion(.errorNoStatusCode)
+                call(completion, returning: .errorNoStatusCode)
             }
+        }
+    }
+    
+    private static func call(_ completion: @escaping NewStudentLocationCompletion, returning result: NewStudentLocationResult) {
+        DispatchQueue.main.async {
+            completion(result)
         }
     }
 }

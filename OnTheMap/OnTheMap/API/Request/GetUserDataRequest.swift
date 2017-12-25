@@ -25,24 +25,30 @@ class GetUserDataRequest {
                 let cleanJsonString = String(jsonString.dropFirst(5))
                 
                 guard let userData = decode(from: cleanJsonString) else {
-                    completion(.errorJsonDecoding)
+                    call(completion, returning: .errorJsonDecoding)
                     return
                 }
                 
-                completion(.success(userData: userData))
+                call(completion, returning: .success(userData: userData))
                 
             case .errorRequest:
-                completion(.errorRequest)
+                call(completion, returning: .errorRequest)
                 
             case .errorDataDecoding:
-                completion(.errorDataDecoding)
+                call(completion, returning: .errorDataDecoding)
                 
             case .errorInvalidStatusCode:
-                completion(.errorInvalidStatusCode)
+                call(completion, returning: .errorInvalidStatusCode)
                 
             case .errorNoStatusCode:
-                completion(.errorNoStatusCode)
+                call(completion, returning: .errorNoStatusCode)
             }
+        }
+    }
+    
+    private static func call(_ completion: @escaping GetUserDataCompletion, returning result: GetUserDataResult) {
+        DispatchQueue.main.async {
+            completion(result)
         }
     }
 }

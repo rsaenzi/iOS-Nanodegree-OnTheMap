@@ -22,24 +22,30 @@ class GetSingleStudentRequest {
             case .success(let jsonString):
                 
                 guard let studentResults = decode(from: jsonString) else {
-                    completion(.errorJsonDecoding)
+                    call(completion, returning: .errorJsonDecoding)
                     return
                 }
                 
-                completion(.success(studentResults: studentResults))
+                call(completion, returning: .success(studentResults: studentResults))
                 
             case .errorRequest:
-                completion(.errorRequest)
+                call(completion, returning: .errorRequest)
                 
             case .errorDataDecoding:
-                completion(.errorDataDecoding)
+                call(completion, returning: .errorDataDecoding)
                 
             case .errorInvalidStatusCode:
-                completion(.errorInvalidStatusCode)
+                call(completion, returning: .errorInvalidStatusCode)
                 
             case .errorNoStatusCode:
-                completion(.errorNoStatusCode)
+                call(completion, returning: .errorNoStatusCode)
             }
+        }
+    }
+    
+    private static func call(_ completion: @escaping GetSingleStudentCompletion, returning result: GetSingleStudentResult) {
+        DispatchQueue.main.async {
+            completion(result)
         }
     }
 }
