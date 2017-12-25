@@ -9,5 +9,6 @@
 import UIKit
 
 class LocationsListCell: UITableViewCell {
-    
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelWebsite: UILabel!
 }

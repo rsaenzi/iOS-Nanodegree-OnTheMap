@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,15 +24,54 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationsListCell" id="IBm-nf-Wel" customClass="LocationsListCell" customModule="OnTheMap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationsListCell" rowHeight="70" id="IBm-nf-Wel" customClass="LocationsListCell" customModule="OnTheMap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IBm-nf-Wel" id="lza-GO-bog">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="L5h-3l-Q6g">
+                                                    <rect key="frame" x="8" y="8" width="53.5" height="53.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="L5h-3l-Q6g" secondAttribute="height" multiplier="1:1" id="Jz1-iU-KbC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQy-z9-Hns">
+                                                    <rect key="frame" x="77.5" y="8" width="234.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://www.linkedin.com/in/rsaenzi/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk1-mK-Gif">
+                                                    <rect key="frame" x="77.5" y="37" width="234.5" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CQy-z9-Hns" firstAttribute="leading" secondItem="L5h-3l-Q6g" secondAttribute="trailing" constant="16" id="97c-Zv-Qqh"/>
+                                                <constraint firstAttribute="trailing" secondItem="Gk1-mK-Gif" secondAttribute="trailing" constant="8" id="9Ca-aQ-MR3"/>
+                                                <constraint firstItem="Gk1-mK-Gif" firstAttribute="top" secondItem="CQy-z9-Hns" secondAttribute="bottom" constant="8" id="Hzb-Iq-c3N"/>
+                                                <constraint firstAttribute="bottom" secondItem="L5h-3l-Q6g" secondAttribute="bottom" constant="8" id="J7v-b6-TtR"/>
+                                                <constraint firstItem="L5h-3l-Q6g" firstAttribute="top" secondItem="lza-GO-bog" secondAttribute="top" constant="8" id="RCq-ip-0aQ"/>
+                                                <constraint firstItem="CQy-z9-Hns" firstAttribute="top" secondItem="lza-GO-bog" secondAttribute="top" constant="8" id="SPM-F2-Tl6"/>
+                                                <constraint firstItem="L5h-3l-Q6g" firstAttribute="leading" secondItem="lza-GO-bog" secondAttribute="leading" constant="8" id="Tx7-B9-5bj"/>
+                                                <constraint firstItem="Gk1-mK-Gif" firstAttribute="leading" secondItem="L5h-3l-Q6g" secondAttribute="trailing" constant="16" id="rVN-Zu-I7F"/>
+                                                <constraint firstAttribute="trailing" secondItem="CQy-z9-Hns" secondAttribute="trailing" constant="8" id="sAz-aj-BNB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelName" destination="CQy-z9-Hns" id="hRB-1H-duJ"/>
+                                            <outlet property="labelWebsite" destination="Gk1-mK-Gif" id="eRx-bw-FgP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="evF-GQ-CkA" id="Jr5-Jh-7yk"/>
+                                    <outlet property="delegate" destination="evF-GQ-CkA" id="cj2-0h-NMN"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,14 +84,31 @@
                         <viewLayoutGuide key="safeArea" id="hQV-Ib-Fzx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Locations List" id="VBK-6h-ohc">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="mtR-RF-rUP"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="mtR-RF-rUP">
+                            <connections>
+                                <action selector="onTapLogout:" destination="evF-GQ-CkA" id="2X4-2h-809"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="YAh-Op-Maf"/>
-                            <barButtonItem systemItem="refresh" id="dul-mm-Xxe"/>
+                            <barButtonItem systemItem="add" id="YAh-Op-Maf">
+                                <connections>
+                                    <segue destination="3bX-92-X5l" kind="presentation" id="UTp-dW-ihy"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="dul-mm-Xxe">
+                                <connections>
+                                    <action selector="onTapRefresh:" destination="evF-GQ-CkA" id="alX-kH-F8T"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="buttonLogout" destination="mtR-RF-rUP" id="KUe-1G-nzd"/>
+                        <outlet property="buttonRefresh" destination="dul-mm-Xxe" id="Upi-kE-AtA"/>
+                        <outlet property="table" destination="78d-VV-3zc" id="WWT-k8-OVx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aF-q8-aIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,8 +134,17 @@
             </objects>
             <point key="canvasLocation" x="-437" y="97"/>
         </scene>
+        <!--AddLocationVC-->
+        <scene sceneID="5AY-wo-BYO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddLocationVC" id="3bX-92-X5l" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVh-kR-PSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015" y="97"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_listview-selected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
     </resources>
 </document>
