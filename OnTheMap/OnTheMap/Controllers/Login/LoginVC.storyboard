@@ -47,6 +47,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onTapLogin:forEvent:" destination="f7d-L7-zZS" eventType="touchUpInside" id="577-mC-caG"/>
+                                    <segue destination="hlg-k2-K3e" kind="show" id="Ahn-8f-WtK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On The Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0C-ug-aNw">
@@ -103,6 +104,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksT-1h-F2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="108" y="-156"/>
+        </scene>
+        <!--TabBar-->
+        <scene sceneID="Fap-Mx-p6y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBar" id="hlg-k2-K3e" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sO-RX-et0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="-156"/>
         </scene>
     </scenes>
     <resources>

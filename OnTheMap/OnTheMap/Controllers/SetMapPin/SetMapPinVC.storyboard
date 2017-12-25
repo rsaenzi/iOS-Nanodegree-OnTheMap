@@ -10,16 +10,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Set Map PinVC-->
+        <!--Set Map Pin-->
         <scene sceneID="mK7-SD-xbf">
             <objects>
                 <viewController storyboardIdentifier="SetMapPinVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sBL-JL-SRw" customClass="SetMapPinVC" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fh5-lY-YnQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qca-qp-IWR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71792869380000002" green="0.9367005249" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qca-qp-IWR" firstAttribute="leading" secondItem="iFx-pg-2sn" secondAttribute="leading" id="Geq-fB-tmZ"/>
+                            <constraint firstItem="Qca-qp-IWR" firstAttribute="top" secondItem="iFx-pg-2sn" secondAttribute="top" id="Kqr-e3-Ean"/>
+                            <constraint firstItem="iFx-pg-2sn" firstAttribute="trailing" secondItem="Qca-qp-IWR" secondAttribute="trailing" id="LPj-4E-A3s"/>
+                            <constraint firstItem="iFx-pg-2sn" firstAttribute="bottom" secondItem="Qca-qp-IWR" secondAttribute="bottom" id="cwx-Fe-WXL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iFx-pg-2sn"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Set Map Pin" id="4gF-pu-brZ"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJg-7t-fOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
