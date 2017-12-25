@@ -47,7 +47,7 @@ class LoginVC: UIViewController {
     
     private func getSession(username: String, password: String) {
         
-        self.waitingMode(enable: true)
+        waitingMode(enable: true)
         
         GetSessionIdRequest.post(username: username, password: password) { result in
             switch result {
@@ -79,7 +79,7 @@ class LoginVC: UIViewController {
                 
             default:
                 self.waitingMode(enable: false)
-                self.showAlert("Error on Login")
+                self.showAlert("Error fetching student locations")
             }
         }
     }

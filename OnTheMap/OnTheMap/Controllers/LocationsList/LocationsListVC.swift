@@ -21,11 +21,50 @@ class LocationsListVC: UIViewController {
     }
     
     @IBAction func onTapLogout(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
+        logOut()
     }
     
     @IBAction func onTapRefresh(_ sender: UIBarButtonItem) {
+        getStudentLocations()
+    }
+    
+    private func getStudentLocations() {
+        
         waitingMode(enable: true)
+        
+        GetStudentLocationsRequest.get(limit: 100, skip: nil, order: nil) { result in
+            switch result {
+                
+            case .success(let studentLocations):
+                Model.shared.students = studentLocations.results
+                self.table.reloadData()
+                
+            default:
+                self.showAlert("Error fetching student locations")
+            }
+            self.waitingMode(enable: false)
+        }
+    }
+    
+    private func logOut() {
+        
+        waitingMode(enable: true)
+        
+        DeleteSessionRequest.post { result in
+            switch result {
+                
+            case .success(let session):
+                
+                Model.shared.session = nil
+                Model.shared.students = []
+                
+                self.waitingMode(enable: false)
+                self.dismiss(animated: true)
+                
+            default:
+                self.showAlert("Error on Logout")
+            }
+        }
     }
     
     private func waitingMode(enable: Bool) {
@@ -34,6 +73,13 @@ class LocationsListVC: UIViewController {
         buttonLogout.isEnabled = !enable
         buttonRefresh.isEnabled = !enable
         buttonAdd.isEnabled = !enable
+    }
+    
+    private func showAlert(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(actionOk)
+        present(alert, animated: true)
     }
 }
 
