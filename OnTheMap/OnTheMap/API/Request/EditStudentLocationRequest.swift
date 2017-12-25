@@ -19,7 +19,7 @@ class EditStudentLocationRequest {
         Request.shared.request(endpoint) { result in
             
             switch result {
-            case .success(let jsonString):
+            case .success(let jsonString, let statusCode):
                 
 //                guard let studentResults = decode(from: jsonString) else { // TODO here
 //                    call(completion, returning: .errorJsonDecoding)
@@ -49,26 +49,6 @@ class EditStudentLocationRequest {
         }
     }
 }
-
-// MARK: JSON Decoding
-//extension EditStudentLocationRequest {
-//
-//    private func decode(from jsonString: String) -> StudentResults? { // TODO objeto response aqui
-//
-//        let decoder = JSONDecoder()
-//        decoder.dateDecodingStrategy = .formatted(DateFormats.server.formatter)
-//
-//        guard let jsonData = jsonString.data(using: .utf8) else {
-//            return nil
-//        }
-//
-//        guard let object = try? decoder.decode(StudentResults.self, from: jsonData) else {
-//            return nil
-//        }
-//
-//        return object
-//    }
-//}
 
 // MARK: Result
 enum EditStudentLocationResult {

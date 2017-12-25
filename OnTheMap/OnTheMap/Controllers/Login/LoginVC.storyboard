@@ -28,13 +28,13 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="deY-Ar-og9">
                                 <rect key="frame" x="60.5" y="253" width="200" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c04-WS-tKs">
                                 <rect key="frame" x="60" y="308" width="200" height="40"/>
@@ -46,8 +46,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onTapLogin:forEvent:" destination="f7d-L7-zZS" eventType="touchUpInside" id="577-mC-caG"/>
-                                    <segue destination="hlg-k2-K3e" kind="show" id="Ahn-8f-WtK"/>
+                                    <action selector="onTapLogin:forEvent:" destination="f7d-L7-zZS" eventType="touchUpInside" id="mxq-sF-lVz"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On The Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0C-ug-aNw">
@@ -71,6 +70,20 @@
                                     <action selector="onTapSignUp:forEvent:" destination="f7d-L7-zZS" eventType="touchUpInside" id="5PY-4K-UTr"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4M7-aL-JDi" userLabel="WaitingView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ztK-Au-gp8">
+                                        <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.60786950588226318" blue="0.9640926718711853" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ztK-Au-gp8" firstAttribute="centerY" secondItem="4M7-aL-JDi" secondAttribute="centerY" id="2Mf-w0-3Ln"/>
+                                    <constraint firstItem="ztK-Au-gp8" firstAttribute="centerX" secondItem="4M7-aL-JDi" secondAttribute="centerX" id="P7l-ND-rb1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -78,6 +91,7 @@
                             <constraint firstItem="Oli-A1-OSl" firstAttribute="centerX" secondItem="u1W-5i-Lde" secondAttribute="centerX" id="BWH-1t-6jz"/>
                             <constraint firstItem="n0C-ug-aNw" firstAttribute="top" secondItem="D2b-JC-oz2" secondAttribute="bottom" constant="20" id="F1m-3d-ucm"/>
                             <constraint firstItem="D2b-JC-oz2" firstAttribute="top" secondItem="3cc-6q-ttc" secondAttribute="top" constant="30" id="TIC-eA-vuR"/>
+                            <constraint firstItem="4M7-aL-JDi" firstAttribute="top" secondItem="u1W-5i-Lde" secondAttribute="top" id="TWQ-9k-Zqr"/>
                             <constraint firstItem="CjU-Ab-nyF" firstAttribute="top" secondItem="c04-WS-tKs" secondAttribute="bottom" constant="40" id="XkY-H5-I82"/>
                             <constraint firstItem="c04-WS-tKs" firstAttribute="top" secondItem="deY-Ar-og9" secondAttribute="bottom" constant="25" id="che-aF-Moz"/>
                             <constraint firstItem="D2b-JC-oz2" firstAttribute="centerX" secondItem="u1W-5i-Lde" secondAttribute="centerX" id="dh7-4S-SLC"/>
@@ -86,8 +100,11 @@
                             <constraint firstItem="deY-Ar-og9" firstAttribute="top" secondItem="Dv3-vg-qn1" secondAttribute="bottom" constant="20" id="gdb-PW-gJd"/>
                             <constraint firstItem="Oli-A1-OSl" firstAttribute="width" secondItem="c04-WS-tKs" secondAttribute="width" id="iPQ-Vg-62i"/>
                             <constraint firstItem="Dv3-vg-qn1" firstAttribute="centerX" secondItem="u1W-5i-Lde" secondAttribute="centerX" id="lbA-Ol-SBm"/>
+                            <constraint firstItem="4M7-aL-JDi" firstAttribute="leading" secondItem="3cc-6q-ttc" secondAttribute="leading" id="lmk-Io-yl3"/>
                             <constraint firstItem="c04-WS-tKs" firstAttribute="centerX" secondItem="u1W-5i-Lde" secondAttribute="centerX" id="m21-le-iCM"/>
+                            <constraint firstItem="4M7-aL-JDi" firstAttribute="bottom" secondItem="3cc-6q-ttc" secondAttribute="bottom" id="may-zF-LEH"/>
                             <constraint firstItem="CjU-Ab-nyF" firstAttribute="centerX" secondItem="u1W-5i-Lde" secondAttribute="centerX" id="mdo-re-fJI"/>
+                            <constraint firstItem="4M7-aL-JDi" firstAttribute="trailing" secondItem="3cc-6q-ttc" secondAttribute="trailing" id="n2Y-4h-k6u"/>
                             <constraint firstItem="deY-Ar-og9" firstAttribute="centerX" secondItem="u1W-5i-Lde" secondAttribute="centerX" id="rQH-N2-lmt"/>
                             <constraint firstItem="c04-WS-tKs" firstAttribute="width" secondItem="deY-Ar-og9" secondAttribute="width" id="xMW-Nk-uJ0"/>
                             <constraint firstItem="Dv3-vg-qn1" firstAttribute="top" secondItem="n0C-ug-aNw" secondAttribute="bottom" constant="50" id="xeW-L0-ogT"/>
@@ -99,11 +116,13 @@
                         <outlet property="buttonSignUp" destination="Oli-A1-OSl" id="D5O-zG-DzY"/>
                         <outlet property="textfieldPassword" destination="deY-Ar-og9" id="wvG-LG-MtH"/>
                         <outlet property="textfieldUsername" destination="Dv3-vg-qn1" id="ZCu-Ic-2V3"/>
+                        <outlet property="waitingView" destination="4M7-aL-JDi" id="rau-yE-X7j"/>
+                        <segue destination="hlg-k2-K3e" kind="show" identifier="ShowTabBar" id="cS0-Es-G4K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksT-1h-F2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="-156"/>
+            <point key="canvasLocation" x="-78.75" y="-174.29577464788733"/>
         </scene>
         <!--TabBar-->
         <scene sceneID="Fap-Mx-p6y">
@@ -111,7 +130,7 @@
                 <viewControllerPlaceholder storyboardName="TabBar" id="hlg-k2-K3e" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sO-RX-et0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="674" y="-156"/>
+            <point key="canvasLocation" x="586" y="-174"/>
         </scene>
     </scenes>
     <resources>

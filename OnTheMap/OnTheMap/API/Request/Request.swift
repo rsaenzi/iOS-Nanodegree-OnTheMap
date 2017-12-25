@@ -50,12 +50,12 @@ class Request {
             
             // Status code must be valid
             guard httpResponse.statusCode == successStatusCode else {
-                completion(.errorInvalidStatusCode)
+                completion(.errorInvalidStatusCode(statusCode: httpResponse.statusCode))
                 return
             }
             
             // Return the json string
-            completion(.success(jsonString: jsonString))
+            completion(.success(jsonString: jsonString, statusCode: httpResponse.statusCode))
         }
         
         // Start the data task
@@ -64,10 +64,10 @@ class Request {
 }
 
 enum RequestResult {
-    case success(jsonString: String)
+    case success(jsonString: String, statusCode: Int)
     
     case errorRequest
     case errorNoStatusCode
-    case errorInvalidStatusCode
+    case errorInvalidStatusCode(statusCode: Int)
     case errorDataDecoding
 }

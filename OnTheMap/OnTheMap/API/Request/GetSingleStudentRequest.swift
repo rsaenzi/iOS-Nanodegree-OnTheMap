@@ -19,7 +19,7 @@ class GetSingleStudentRequest {
         Request.shared.request(endpoint) { result in
             
             switch result {
-            case .success(let jsonString):
+            case .success(let jsonString, let statusCode):
                 
                 guard let studentResults = decode(from: jsonString) else {
                     call(completion, returning: .errorJsonDecoding)
@@ -62,7 +62,11 @@ extension GetSingleStudentRequest {
             return nil
         }
         
-        guard let object = try? decoder.decode(StudentResults.self, from: jsonData) else {
+        var object: StudentResults?
+        do {
+            object = try decoder.decode(StudentResults.self, from: jsonData)
+        } catch {
+            print(error)
             return nil
         }
         

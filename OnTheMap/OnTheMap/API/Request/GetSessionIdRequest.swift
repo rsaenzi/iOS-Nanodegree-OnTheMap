@@ -19,7 +19,7 @@ class GetSessionIdRequest {
         Request.shared.request(endpoint) { result in
             
             switch result {
-            case .success(let jsonString):
+            case .success(let jsonString, let statusCode):
                 
                 // We need to delete the first 5 characters, according to Udacity API documentation
                 let cleanJsonString = String(jsonString.dropFirst(5))
@@ -37,7 +37,14 @@ class GetSessionIdRequest {
             case .errorDataDecoding:
                 call(completion, returning: .errorDataDecoding)
                 
-            case .errorInvalidStatusCode:
+            case .errorInvalidStatusCode(let statusCode):
+                
+                // This status code represent invalid credentials
+                if statusCode == 403 {
+                    call(completion, returning: .invalidCredentials)
+                    return
+                }
+                
                 call(completion, returning: .errorInvalidStatusCode)
                 
             case .errorNoStatusCode:
@@ -65,7 +72,11 @@ extension GetSessionIdRequest {
             return nil
         }
         
-        guard let object = try? decoder.decode(UdacitySession.self, from: jsonData) else {
+        var object: UdacitySession?
+        do {
+            object = try decoder.decode(UdacitySession.self, from: jsonData)
+        } catch {
+            print(error)
             return nil
         }
         
@@ -77,6 +88,7 @@ extension GetSessionIdRequest {
 enum GetSessionIdResult {
     case success(session: UdacitySession)
     
+    case invalidCredentials
     case errorRequest
     case errorDataDecoding
     case errorInvalidStatusCode

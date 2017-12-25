@@ -19,14 +19,14 @@ class GetStudentLocationsRequest {
         Request.shared.request(endpoint) { result in
             
             switch result {
-            case .success(let jsonString):
+            case .success(let jsonString, let statusCode):
                 
-                guard let studentResults = decode(from: jsonString) else {
+                guard let locations = decode(from: jsonString) else {
                     call(completion, returning: .errorJsonDecoding)
                     return
                 }
                 
-                call(completion, returning: .success(studentResults: studentResults))
+                call(completion, returning: .success(studentLocations: locations))
                 
             case .errorRequest:
                 call(completion, returning: .errorRequest)
@@ -62,7 +62,11 @@ extension GetStudentLocationsRequest {
             return nil
         }
         
-        guard let object = try? decoder.decode(StudentResults.self, from: jsonData) else {
+        var object: StudentResults?
+        do {
+            object = try decoder.decode(StudentResults.self, from: jsonData)
+        } catch {
+            print(error)
             return nil
         }
         
@@ -72,7 +76,7 @@ extension GetStudentLocationsRequest {
 
 // MARK: Result
 enum GetStudentLocationsResult {
-    case success(studentResults: StudentResults)
+    case success(studentLocations: StudentResults)
     
     case errorRequest
     case errorDataDecoding

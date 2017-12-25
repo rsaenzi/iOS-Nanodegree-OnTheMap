@@ -19,7 +19,7 @@ class DeleteSessionRequest {
         Request.shared.request(endpoint) { result in
             
             switch result {
-            case .success(let jsonString):
+            case .success(let jsonString, let statusCode):
                 
                 // We need to delete the first 5 characters, according to Udacity API documentation
                 let cleanJsonString = String(jsonString.dropFirst(5))
@@ -65,7 +65,11 @@ extension DeleteSessionRequest {
             return nil
         }
         
-        guard let object = try? decoder.decode(UdacityDeletedSession.self, from: jsonData) else {
+        var object: UdacityDeletedSession?
+        do {
+            object = try decoder.decode(UdacityDeletedSession.self, from: jsonData)
+        } catch {
+            print(error)
             return nil
         }
         

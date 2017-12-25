@@ -9,5 +9,8 @@
 import Foundation
 
 class Model {
-    var students = [StudentResults]()
+    static let shared = Model()
+    
+    var session: UdacitySession?
+    var students = [StudentInformation]()
 }
