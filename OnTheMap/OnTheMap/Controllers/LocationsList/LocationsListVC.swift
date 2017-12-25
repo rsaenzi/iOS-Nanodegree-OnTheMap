@@ -24,14 +24,28 @@ class LocationsListVC: UIViewController {
 
 extension LocationsListVC: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 }
 
 extension LocationsListVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return Model.shared.students.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let student = Model.shared.students[indexPath.row]
+        let cell: LocationsListCell = tableView.dequeue(indexPath)
+        
+        let firstName = student.firstName ?? ""
+        let lastName = student.lastName ?? ""
+        
+        cell.labelName.text = firstName + "" + lastName
+        cell.labelWebsite.text = student.mediaURL
+        
+        return cell
     }
 }
