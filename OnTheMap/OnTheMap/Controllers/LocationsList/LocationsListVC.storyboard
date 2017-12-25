@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,10 +18,28 @@
                     <view key="view" contentMode="scaleToFill" id="I8p-kj-Esd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.18576443200000001" green="0.69839298729999999" blue="0.14596000310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="78d-VV-3zc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hQV-Ib-Fzx" firstAttribute="bottom" secondItem="78d-VV-3zc" secondAttribute="bottom" id="ED9-Zf-bP2"/>
+                            <constraint firstItem="hQV-Ib-Fzx" firstAttribute="trailing" secondItem="78d-VV-3zc" secondAttribute="trailing" id="e2h-jT-hts"/>
+                            <constraint firstItem="78d-VV-3zc" firstAttribute="leading" secondItem="hQV-Ib-Fzx" secondAttribute="leading" id="jo9-Ky-Sxk"/>
+                            <constraint firstItem="78d-VV-3zc" firstAttribute="top" secondItem="hQV-Ib-Fzx" secondAttribute="top" id="lHG-hw-Ho2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hQV-Ib-Fzx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Locations List" id="VBK-6h-ohc"/>
+                    <navigationItem key="navigationItem" title="Locations List" id="VBK-6h-ohc">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="mtR-RF-rUP"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="YAh-Op-Maf"/>
+                            <barButtonItem systemItem="refresh" id="dul-mm-Xxe"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </viewController>
