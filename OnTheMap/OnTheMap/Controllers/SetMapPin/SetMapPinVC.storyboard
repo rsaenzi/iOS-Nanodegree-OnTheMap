@@ -37,15 +37,33 @@
                                     <action selector="onTapFinish:forEvent:" destination="sBL-JL-SRw" eventType="touchUpInside" id="vWM-gn-pio"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpO-Rx-3Gn" userLabel="WaitingView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Dif-Av-5Mr">
+                                        <rect key="frame" x="142" y="209.5" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1137254902" green="0.6078695059" blue="0.96409267190000003" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Dif-Av-5Mr" firstAttribute="centerX" secondItem="UpO-Rx-3Gn" secondAttribute="centerX" id="8Co-sj-bGf"/>
+                                    <constraint firstItem="Dif-Av-5Mr" firstAttribute="centerY" secondItem="UpO-Rx-3Gn" secondAttribute="centerY" id="RkG-zQ-bkZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.71792869380000002" green="0.9367005249" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="UpO-Rx-3Gn" firstAttribute="leading" secondItem="iFx-pg-2sn" secondAttribute="leading" id="98g-le-JRN"/>
+                            <constraint firstAttribute="bottom" secondItem="UpO-Rx-3Gn" secondAttribute="bottom" id="BAB-aG-EeG"/>
                             <constraint firstItem="Qca-qp-IWR" firstAttribute="leading" secondItem="iFx-pg-2sn" secondAttribute="leading" id="Geq-fB-tmZ"/>
                             <constraint firstItem="iFx-pg-2sn" firstAttribute="bottom" secondItem="ihM-kR-Kmd" secondAttribute="bottom" constant="24" id="KE5-D9-5Rf"/>
                             <constraint firstItem="Qca-qp-IWR" firstAttribute="top" secondItem="iFx-pg-2sn" secondAttribute="top" id="Kqr-e3-Ean"/>
                             <constraint firstItem="iFx-pg-2sn" firstAttribute="trailing" secondItem="Qca-qp-IWR" secondAttribute="trailing" id="LPj-4E-A3s"/>
                             <constraint firstItem="ihM-kR-Kmd" firstAttribute="leading" secondItem="iFx-pg-2sn" secondAttribute="leading" constant="24" id="PJ7-mc-xXy"/>
                             <constraint firstItem="iFx-pg-2sn" firstAttribute="bottom" secondItem="Qca-qp-IWR" secondAttribute="bottom" id="cwx-Fe-WXL"/>
+                            <constraint firstItem="UpO-Rx-3Gn" firstAttribute="trailing" secondItem="iFx-pg-2sn" secondAttribute="trailing" id="lUB-ky-8Nw"/>
+                            <constraint firstItem="UpO-Rx-3Gn" firstAttribute="top" secondItem="Fh5-lY-YnQ" secondAttribute="top" id="pvp-Z4-gS4"/>
                             <constraint firstItem="iFx-pg-2sn" firstAttribute="trailing" secondItem="ihM-kR-Kmd" secondAttribute="trailing" constant="24" id="t1D-GM-vAN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iFx-pg-2sn"/>
@@ -56,6 +74,7 @@
                     <connections>
                         <outlet property="buttonFinish" destination="ihM-kR-Kmd" id="HCM-wO-7nw"/>
                         <outlet property="map" destination="Qca-qp-IWR" id="zyx-Vr-LSU"/>
+                        <outlet property="waitingView" destination="UpO-Rx-3Gn" id="3l8-Pv-BGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJg-7t-fOY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -30,13 +30,13 @@
                                 <rect key="frame" x="30" y="173" width="260" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="address-level2"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-m6-MAi">
                                 <rect key="frame" x="30" y="223" width="260" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="url"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpZ-NW-cBl">
                                 <rect key="frame" x="30" y="273" width="260" height="40"/>
@@ -48,14 +48,32 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="onTapFind:forEvent:" destination="U2h-QH-2c1" eventType="touchUpInside" id="cbJ-Vw-OVg"/>
                                     <segue destination="Vxr-Lo-THS" kind="show" id="mUz-zq-8LR"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYf-FA-o6O" userLabel="WaitingView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aCG-j0-8Yq">
+                                        <rect key="frame" x="142" y="209.5" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1137254902" green="0.6078695059" blue="0.96409267190000003" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="aCG-j0-8Yq" firstAttribute="centerX" secondItem="RYf-FA-o6O" secondAttribute="centerX" id="8kT-tA-zEV"/>
+                                    <constraint firstItem="aCG-j0-8Yq" firstAttribute="centerY" secondItem="RYf-FA-o6O" secondAttribute="centerY" id="rhQ-hu-qT0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jyk-so-Tso" firstAttribute="trailing" secondItem="C82-ZT-7hN" secondAttribute="trailing" constant="30" id="0RD-oD-q43"/>
                             <constraint firstItem="xIS-p2-grB" firstAttribute="centerX" secondItem="nDx-tf-mfD" secondAttribute="centerX" id="AiQ-lZ-P6b"/>
+                            <constraint firstItem="RYf-FA-o6O" firstAttribute="leading" secondItem="jyk-so-Tso" secondAttribute="leading" id="Ant-ux-TAf"/>
+                            <constraint firstAttribute="bottom" secondItem="RYf-FA-o6O" secondAttribute="bottom" id="AuH-u0-wz7"/>
+                            <constraint firstItem="RYf-FA-o6O" firstAttribute="top" secondItem="nDx-tf-mfD" secondAttribute="top" id="ICY-p0-jTH"/>
                             <constraint firstItem="PpZ-NW-cBl" firstAttribute="centerX" secondItem="nDx-tf-mfD" secondAttribute="centerX" id="QBn-Ys-8ts"/>
                             <constraint firstItem="C82-ZT-7hN" firstAttribute="leading" secondItem="jyk-so-Tso" secondAttribute="leading" constant="30" id="cUF-Wc-Kg3"/>
                             <constraint firstItem="PpZ-NW-cBl" firstAttribute="width" secondItem="C82-ZT-7hN" secondAttribute="width" id="dno-Ex-hq1"/>
@@ -64,6 +82,7 @@
                             <constraint firstItem="PpZ-NW-cBl" firstAttribute="top" secondItem="hjD-m6-MAi" secondAttribute="bottom" constant="20" id="jqQ-kr-d2E"/>
                             <constraint firstItem="hjD-m6-MAi" firstAttribute="width" secondItem="C82-ZT-7hN" secondAttribute="width" id="kqL-Y4-Utj"/>
                             <constraint firstItem="hjD-m6-MAi" firstAttribute="centerX" secondItem="C82-ZT-7hN" secondAttribute="centerX" id="vAe-8B-inK"/>
+                            <constraint firstItem="RYf-FA-o6O" firstAttribute="trailing" secondItem="jyk-so-Tso" secondAttribute="trailing" id="wdy-N6-ag3"/>
                             <constraint firstItem="xIS-p2-grB" firstAttribute="top" secondItem="jyk-so-Tso" secondAttribute="top" constant="30" id="zB5-ek-pE5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jyk-so-Tso"/>
@@ -79,8 +98,10 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="buttonCancel" destination="AVP-xQ-m2U" id="7t8-rB-K27"/>
+                        <outlet property="buttonFind" destination="PpZ-NW-cBl" id="xad-jH-5tE"/>
                         <outlet property="textfieldLocationName" destination="C82-ZT-7hN" id="leP-V7-djl"/>
                         <outlet property="textfieldWebsite" destination="hjD-m6-MAi" id="raL-LI-stP"/>
+                        <outlet property="waitingView" destination="RYf-FA-o6O" id="A3B-KR-t6J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fW1-Eu-pOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

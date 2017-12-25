@@ -11,11 +11,20 @@ import MapKit
 
 class SetMapPinVC: UIViewController {
     
+    @IBOutlet weak var waitingView: UIView!
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var buttonFinish: UIButton!
     
+    override func viewDidLoad() {
+        waitingMode(enable: false)
+    }
+    
     @IBAction func onTapFinish(_ sender: UIButton, forEvent event: UIEvent) {
         navigationController?.dismiss(animated: true)
+    }
+    
+    private func waitingMode(enable: Bool) {
+        waitingView.isHidden = !enable
     }
 }
 
