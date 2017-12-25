@@ -73,7 +73,7 @@ class LoginVC: UIViewController {
             switch result {
                 
             case .success(let studentLocations):
-                Model.shared.students = studentLocations.results
+                Model.shared.set(students: studentLocations.results)
                 self.waitingMode(enable: false)
                 self.performSegue(withIdentifier: "ShowTabBar", sender: self)
                 

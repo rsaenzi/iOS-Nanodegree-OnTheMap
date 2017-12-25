@@ -36,7 +36,7 @@ class LocationsListVC: UIViewController {
             switch result {
                 
             case .success(let studentLocations):
-                Model.shared.students = studentLocations.results
+                Model.shared.set(students: studentLocations.results)
                 self.table.reloadData()
                 
             default:
@@ -56,7 +56,7 @@ class LocationsListVC: UIViewController {
             case .success(let session):
                 
                 Model.shared.session = nil
-                Model.shared.students = []
+                Model.shared.set(students: [])
                 
                 self.waitingMode(enable: false)
                 self.dismiss(animated: true)
@@ -92,7 +92,7 @@ extension LocationsListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let student = Model.shared.students[indexPath.row]
+        let student = Model.shared.getStudents()[indexPath.row]
         
         guard let link = student.mediaURL, let url = URL(string: link),
                 UIApplication.shared.canOpenURL(url) else {
@@ -105,12 +105,12 @@ extension LocationsListVC: UITableViewDelegate {
 extension LocationsListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Model.shared.students.count
+        return Model.shared.getStudents().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let student = Model.shared.students[indexPath.row]
+        let student = Model.shared.getStudents()[indexPath.row]
         let cell: LocationsListCell = tableView.dequeue(indexPath)
         
         let firstName = student.firstName ?? ""

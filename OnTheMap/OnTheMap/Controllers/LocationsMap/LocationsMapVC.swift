@@ -19,6 +19,7 @@ class LocationsMapVC: UIViewController {
     
     override func viewDidLoad() {
         waitingMode(enable: false)
+        map.addAnnotations(Model.shared.getLocations())
     }
     
     @IBAction func onTapLogout(_ sender: UIBarButtonItem) {
@@ -37,9 +38,13 @@ class LocationsMapVC: UIViewController {
             switch result {
                 
             case .success(let studentLocations):
-                Model.shared.students = studentLocations.results
                 
-                // TODO Reload map points
+                // Remove any previous locations
+                self.map.removeAnnotations(Model.shared.getLocations())
+                
+                // Add the new locations
+                Model.shared.set(students: studentLocations.results)
+                self.map.addAnnotations(Model.shared.getLocations())
                 
             default:
                 self.showAlert("Error fetching student locations")
@@ -58,7 +63,7 @@ class LocationsMapVC: UIViewController {
             case .success(let session):
                 
                 Model.shared.session = nil
-                Model.shared.students = []
+                Model.shared.set(students: [])
                 
                 self.waitingMode(enable: false)
                 self.dismiss(animated: true)
