@@ -25,12 +25,30 @@
                                     <outlet property="delegate" destination="Uzd-9d-9e6" id="ZMd-St-bkp"/>
                                 </connections>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIW-un-P43" userLabel="WaitingView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4jq-xv-bNx">
+                                        <rect key="frame" x="142" y="209.5" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1137254902" green="0.6078695059" blue="0.96409267190000003" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="4jq-xv-bNx" firstAttribute="centerX" secondItem="ZIW-un-P43" secondAttribute="centerX" id="Gqa-w3-AjW"/>
+                                    <constraint firstItem="4jq-xv-bNx" firstAttribute="centerY" secondItem="ZIW-un-P43" secondAttribute="centerY" id="M2o-d1-thn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ZIW-un-P43" firstAttribute="top" secondItem="fZp-S6-TyG" secondAttribute="top" id="2R1-Bh-DiP"/>
                             <constraint firstItem="5Gj-c7-Nhe" firstAttribute="bottom" secondItem="Nsq-qH-HvA" secondAttribute="bottom" id="5hi-1r-GXW"/>
+                            <constraint firstAttribute="bottom" secondItem="ZIW-un-P43" secondAttribute="bottom" id="F04-HS-vf1"/>
                             <constraint firstItem="Nsq-qH-HvA" firstAttribute="top" secondItem="5Gj-c7-Nhe" secondAttribute="top" id="JbD-DV-eEy"/>
                             <constraint firstItem="5Gj-c7-Nhe" firstAttribute="trailing" secondItem="Nsq-qH-HvA" secondAttribute="trailing" id="UcU-Uk-3UP"/>
+                            <constraint firstItem="ZIW-un-P43" firstAttribute="leading" secondItem="5Gj-c7-Nhe" secondAttribute="leading" id="UdQ-k0-Xet"/>
+                            <constraint firstItem="ZIW-un-P43" firstAttribute="trailing" secondItem="5Gj-c7-Nhe" secondAttribute="trailing" id="vtQ-O6-GSa"/>
                             <constraint firstItem="Nsq-qH-HvA" firstAttribute="leading" secondItem="5Gj-c7-Nhe" secondAttribute="leading" id="zPx-oq-IfY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Gj-c7-Nhe"/>
@@ -60,6 +78,7 @@
                         <outlet property="buttonLogout" destination="lKe-IG-VNp" id="hZ7-tn-MNT"/>
                         <outlet property="buttonRefresh" destination="cR7-Lb-tZf" id="H76-7f-cPE"/>
                         <outlet property="map" destination="Nsq-qH-HvA" id="cHm-8G-l3h"/>
+                        <outlet property="waitingView" destination="ZIW-un-P43" id="lf6-Nn-gr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZS-3U-8BT" userLabel="First Responder" sceneMemberID="firstResponder"/>

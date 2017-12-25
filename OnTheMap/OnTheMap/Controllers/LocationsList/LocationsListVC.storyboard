@@ -73,13 +73,31 @@
                                     <outlet property="delegate" destination="evF-GQ-CkA" id="cj2-0h-NMN"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJX-lJ-csj" userLabel="WaitingView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mZB-5k-SnY">
+                                        <rect key="frame" x="142" y="209.5" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1137254902" green="0.6078695059" blue="0.96409267190000003" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="mZB-5k-SnY" firstAttribute="centerX" secondItem="hJX-lJ-csj" secondAttribute="centerX" id="dys-9l-q8i"/>
+                                    <constraint firstItem="mZB-5k-SnY" firstAttribute="centerY" secondItem="hJX-lJ-csj" secondAttribute="centerY" id="r7j-5K-LWK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hJX-lJ-csj" firstAttribute="leading" secondItem="hQV-Ib-Fzx" secondAttribute="leading" id="CP0-vH-lF5"/>
                             <constraint firstItem="hQV-Ib-Fzx" firstAttribute="bottom" secondItem="78d-VV-3zc" secondAttribute="bottom" id="ED9-Zf-bP2"/>
+                            <constraint firstItem="hJX-lJ-csj" firstAttribute="top" secondItem="I8p-kj-Esd" secondAttribute="top" id="Z9C-RV-iov"/>
                             <constraint firstItem="hQV-Ib-Fzx" firstAttribute="trailing" secondItem="78d-VV-3zc" secondAttribute="trailing" id="e2h-jT-hts"/>
                             <constraint firstItem="78d-VV-3zc" firstAttribute="leading" secondItem="hQV-Ib-Fzx" secondAttribute="leading" id="jo9-Ky-Sxk"/>
                             <constraint firstItem="78d-VV-3zc" firstAttribute="top" secondItem="hQV-Ib-Fzx" secondAttribute="top" id="lHG-hw-Ho2"/>
+                            <constraint firstAttribute="bottom" secondItem="hJX-lJ-csj" secondAttribute="bottom" id="mzx-Au-mue"/>
+                            <constraint firstItem="hJX-lJ-csj" firstAttribute="trailing" secondItem="hQV-Ib-Fzx" secondAttribute="trailing" id="uMV-Yy-o8V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hQV-Ib-Fzx"/>
                     </view>
@@ -108,6 +126,7 @@
                         <outlet property="buttonLogout" destination="mtR-RF-rUP" id="KUe-1G-nzd"/>
                         <outlet property="buttonRefresh" destination="dul-mm-Xxe" id="Upi-kE-AtA"/>
                         <outlet property="table" destination="78d-VV-3zc" id="WWT-k8-OVx"/>
+                        <outlet property="waitingView" destination="hJX-lJ-csj" id="2fy-NI-Ftp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aF-q8-aIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
