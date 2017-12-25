@@ -54,7 +54,7 @@ class LoginVC: UIViewController {
                 
             case .success(let session):
                 Model.shared.session = session
-                self.getStudentLocations()
+                self.getUserInfo()
                 
             case .invalidCredentials:
                 self.waitingMode(enable: false)
@@ -63,6 +63,28 @@ class LoginVC: UIViewController {
             default:
                 self.waitingMode(enable: false)
                 self.showAlert("Error on Login")
+            }
+        }
+    }
+    
+    private func getUserInfo() {
+        
+        guard let userId = Model.shared.session?.account.key else {
+            self.waitingMode(enable: false)
+            self.showAlert("Error on fetching user data")
+            return
+        }
+        
+        GetUserDataRequest.get(userId: userId) { result in
+            switch result {
+                
+            case .success(let userData):
+                Model.shared.userData = userData
+                self.getStudentLocations()
+                
+            default:
+                self.waitingMode(enable: false)
+                self.showAlert("Error on fetching user data")
             }
         }
     }

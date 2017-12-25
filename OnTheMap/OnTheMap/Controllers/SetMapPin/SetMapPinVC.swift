@@ -37,8 +37,8 @@ class SetMapPinVC: UIViewController {
         let newLocation = StudentInformation(
             objectId: nil,
             uniqueKey: Model.shared.session?.account.key,
-            firstName: "Rigo Bogota",
-            lastName: "Saenz Colombia",
+            firstName: Model.shared.userData?.user.firstName,
+            lastName: Model.shared.userData?.user.lastName,
             mapString: locationName,
             mediaURL: profileURL,
             latitude: geocodedLocation.latitude,

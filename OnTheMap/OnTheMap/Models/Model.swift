@@ -13,6 +13,7 @@ class Model {
     static let shared = Model()
     
     var session: UdacitySession?
+    var userData: UdacityUserData?
     
     private var locations = [MKPointAnnotation]()
     private var students = [StudentInformation]()
