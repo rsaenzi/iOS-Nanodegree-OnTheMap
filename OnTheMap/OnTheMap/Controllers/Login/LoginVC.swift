@@ -17,7 +17,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var buttonSignUp: UIButton!
     
     override func viewDidLoad() {
-        waitingView.isHidden = true
+        waitingMode(enable: false)
         
         // TODO: Temporal
         textfieldUsername.text = "beto456789@gmail.com"
@@ -47,7 +47,7 @@ class LoginVC: UIViewController {
     
     private func getSession(username: String, password: String) {
         
-        waitingView.isHidden = false
+        self.waitingMode(enable: true)
         
         GetSessionIdRequest.post(username: username, password: password) { result in
             switch result {
@@ -57,11 +57,11 @@ class LoginVC: UIViewController {
                 self.getStudentLocations()
                 
             case .invalidCredentials:
-                self.waitingView.isHidden = true
+                self.waitingMode(enable: false)
                 self.showAlert("Account not found or invalid credentials")
                 
             default:
-                self.waitingView.isHidden = true
+                self.waitingMode(enable: false)
                 self.showAlert("Error on Login")
             }
         }
@@ -74,11 +74,11 @@ class LoginVC: UIViewController {
                 
             case .success(let studentLocations):
                 Model.shared.students = studentLocations.results
-                self.waitingView.isHidden = true
+                self.waitingMode(enable: false)
                 self.performSegue(withIdentifier: "ShowTabBar", sender: self)
                 
             default:
-                self.waitingView.isHidden = true
+                self.waitingMode(enable: false)
                 self.showAlert("Error on Login")
             }
         }
@@ -89,5 +89,9 @@ class LoginVC: UIViewController {
         let actionOk = UIAlertAction(title: "OK", style: .default)
         alert.addAction(actionOk)
         present(alert, animated: true)
+    }
+    
+    private func waitingMode(enable: Bool) {
+        waitingView.isHidden = !enable
     }
 }

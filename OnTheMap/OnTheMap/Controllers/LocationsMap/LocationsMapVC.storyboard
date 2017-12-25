@@ -75,6 +75,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="buttonAdd" destination="ygs-hV-xBF" id="fRp-Ur-FJq"/>
                         <outlet property="buttonLogout" destination="lKe-IG-VNp" id="hZ7-tn-MNT"/>
                         <outlet property="buttonRefresh" destination="cR7-Lb-tZf" id="H76-7f-cPE"/>
                         <outlet property="map" destination="Nsq-qH-HvA" id="cHm-8G-l3h"/>

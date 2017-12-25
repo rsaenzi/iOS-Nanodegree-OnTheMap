@@ -14,9 +14,10 @@ class LocationsListVC: UIViewController {
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var buttonLogout: UIBarButtonItem!
     @IBOutlet weak var buttonRefresh: UIBarButtonItem!
+    @IBOutlet weak var buttonAdd: UIBarButtonItem!
     
     override func viewDidLoad() {
-        waitingView.isHidden = true
+        waitingMode(enable: false)
     }
     
     @IBAction func onTapLogout(_ sender: UIBarButtonItem) {
@@ -24,6 +25,15 @@ class LocationsListVC: UIViewController {
     }
     
     @IBAction func onTapRefresh(_ sender: UIBarButtonItem) {
+        waitingMode(enable: true)
+    }
+    
+    private func waitingMode(enable: Bool) {
+        waitingView.isHidden = !enable
+        
+        buttonLogout.isEnabled = !enable
+        buttonRefresh.isEnabled = !enable
+        buttonAdd.isEnabled = !enable
     }
 }
 

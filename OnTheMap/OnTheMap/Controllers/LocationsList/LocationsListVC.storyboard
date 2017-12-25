@@ -123,6 +123,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="buttonAdd" destination="YAh-Op-Maf" id="gkP-ET-fvd"/>
                         <outlet property="buttonLogout" destination="mtR-RF-rUP" id="KUe-1G-nzd"/>
                         <outlet property="buttonRefresh" destination="dul-mm-Xxe" id="Upi-kE-AtA"/>
                         <outlet property="table" destination="78d-VV-3zc" id="WWT-k8-OVx"/>
