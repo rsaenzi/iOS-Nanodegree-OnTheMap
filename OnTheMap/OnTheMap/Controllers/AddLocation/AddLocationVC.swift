@@ -10,4 +10,11 @@ import UIKit
 
 class AddLocationVC: UIViewController {
     
+    @IBOutlet weak var buttonCancel: UIBarButtonItem!
+    @IBOutlet weak var textfieldLocationName: UITextField!
+    @IBOutlet weak var textfieldWebsite: UITextField!
+    
+    @IBAction func onTapCancel(_ sender: UIBarButtonItem) {
+        
+    }
 }

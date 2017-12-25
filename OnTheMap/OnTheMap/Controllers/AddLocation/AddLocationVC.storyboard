@@ -26,13 +26,13 @@
                                     <constraint firstAttribute="width" constant="80" id="rQ4-wb-wmJ"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C82-ZT-7hN">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C82-ZT-7hN">
                                 <rect key="frame" x="30" y="173" width="260" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Profile URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-m6-MAi">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-m6-MAi">
                                 <rect key="frame" x="30" y="223" width="260" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -69,10 +69,19 @@
                         <viewLayoutGuide key="safeArea" id="jyk-so-Tso"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="AI4-bO-P0U">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AVP-xQ-m2U"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AVP-xQ-m2U">
+                            <connections>
+                                <action selector="onTapCancel:" destination="U2h-QH-2c1" id="8Yi-yr-ycV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="buttonCancel" destination="AVP-xQ-m2U" id="7t8-rB-K27"/>
+                        <outlet property="textfieldLocationName" destination="C82-ZT-7hN" id="leP-V7-djl"/>
+                        <outlet property="textfieldWebsite" destination="hjD-m6-MAi" id="raL-LI-stP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fW1-Eu-pOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
