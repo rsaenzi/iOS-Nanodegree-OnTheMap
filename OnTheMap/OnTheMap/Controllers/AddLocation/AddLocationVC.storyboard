@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,10 +18,56 @@
                     <view key="view" contentMode="scaleToFill" id="nDx-tf-mfD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.92156862750000001" green="0.50980392159999999" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="xIS-p2-grB">
+                                <rect key="frame" x="120" y="30" width="80" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xIS-p2-grB" secondAttribute="height" multiplier="52:67" id="YeD-e9-h8g"/>
+                                    <constraint firstAttribute="width" constant="80" id="rQ4-wb-wmJ"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C82-ZT-7hN">
+                                <rect key="frame" x="30" y="173" width="260" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Profile URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-m6-MAi">
+                                <rect key="frame" x="30" y="223" width="260" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpZ-NW-cBl">
+                                <rect key="frame" x="30" y="273" width="260" height="40"/>
+                                <color key="backgroundColor" red="0.003010978457" green="0.70323187109999996" blue="0.89525973800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nQ1-lA-CSJ"/>
+                                </constraints>
+                                <state key="normal" title="Find Location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jyk-so-Tso" firstAttribute="trailing" secondItem="C82-ZT-7hN" secondAttribute="trailing" constant="30" id="0RD-oD-q43"/>
+                            <constraint firstItem="xIS-p2-grB" firstAttribute="centerX" secondItem="nDx-tf-mfD" secondAttribute="centerX" id="AiQ-lZ-P6b"/>
+                            <constraint firstItem="PpZ-NW-cBl" firstAttribute="centerX" secondItem="nDx-tf-mfD" secondAttribute="centerX" id="QBn-Ys-8ts"/>
+                            <constraint firstItem="C82-ZT-7hN" firstAttribute="leading" secondItem="jyk-so-Tso" secondAttribute="leading" constant="30" id="cUF-Wc-Kg3"/>
+                            <constraint firstItem="PpZ-NW-cBl" firstAttribute="width" secondItem="C82-ZT-7hN" secondAttribute="width" id="dno-Ex-hq1"/>
+                            <constraint firstItem="hjD-m6-MAi" firstAttribute="top" secondItem="C82-ZT-7hN" secondAttribute="bottom" constant="20" id="egl-Tr-44e"/>
+                            <constraint firstItem="C82-ZT-7hN" firstAttribute="top" secondItem="xIS-p2-grB" secondAttribute="bottom" constant="40" id="hWl-kg-fIn"/>
+                            <constraint firstItem="PpZ-NW-cBl" firstAttribute="top" secondItem="hjD-m6-MAi" secondAttribute="bottom" constant="20" id="jqQ-kr-d2E"/>
+                            <constraint firstItem="hjD-m6-MAi" firstAttribute="width" secondItem="C82-ZT-7hN" secondAttribute="width" id="kqL-Y4-Utj"/>
+                            <constraint firstItem="hjD-m6-MAi" firstAttribute="centerX" secondItem="C82-ZT-7hN" secondAttribute="centerX" id="vAe-8B-inK"/>
+                            <constraint firstItem="xIS-p2-grB" firstAttribute="top" secondItem="jyk-so-Tso" secondAttribute="top" constant="30" id="zB5-ek-pE5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jyk-so-Tso"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Location" id="AI4-bO-P0U"/>
+                    <navigationItem key="navigationItem" title="Add Location" id="AI4-bO-P0U">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AVP-xQ-m2U"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </viewController>
@@ -29,4 +76,7 @@
             <point key="canvasLocation" x="122" y="106"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_world" width="52" height="67"/>
+    </resources>
 </document>
