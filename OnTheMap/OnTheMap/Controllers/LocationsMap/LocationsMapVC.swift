@@ -91,5 +91,34 @@ class LocationsMapVC: UIViewController {
 }
 
 extension LocationsMapVC: MKMapViewDelegate {
-    
+ 
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = #colorLiteral(red: 0.003010978457, green: 0.7032318711, blue: 0.895259738, alpha: 1)
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
+        } else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        guard control == view.rightCalloutAccessoryView else {
+            return
+        }
+        guard let link = view.annotation?.subtitle, let url = URL(string: link!),
+                UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:])
+    }
 }
