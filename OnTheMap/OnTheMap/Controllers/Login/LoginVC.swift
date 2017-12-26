@@ -18,9 +18,28 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         waitingMode(enable: false)
+        
+        // Sets the delegate of the textfields
+        textfieldUsername.delegate = self
+        textfieldPassword.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardEvents()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeToKeyboardEvents()
     }
     
     @IBAction func onTapLogin(_ sender: UIButton, forEvent event: UIEvent) {
+        
+        // Dismiss the keyboard
+        textfieldUsername.resignFirstResponder()
+        textfieldPassword.resignFirstResponder()
+        
         guard let username = textfieldUsername.text, username.count > 0 else {
             showAlert("Please enter a valid Udacity Username")
             return
@@ -33,6 +52,10 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func onTapSignUp(_ sender: UIButton, forEvent event: UIEvent) {
+        
+        // Dismiss the keyboard
+        textfieldUsername.resignFirstResponder()
+        textfieldPassword.resignFirstResponder()
         
         guard let url = URL(string: "https://www.udacity.com/account/auth#!/signup"),
                 UIApplication.shared.canOpenURL(url) else {
@@ -87,7 +110,7 @@ class LoginVC: UIViewController {
     
     private func getStudentLocations() {
         
-        GetStudentLocationsRequest.get(limit: 100, skip: nil, order: "-createdAt") { result in
+        GetStudentLocationsRequest.get(limit: 100, skip: nil, order: "-updatedAt") { result in
             switch result {
                 
             case .success(let studentLocations):
@@ -104,5 +127,43 @@ class LoginVC: UIViewController {
     
     private func waitingMode(enable: Bool) {
         waitingView.isHidden = !enable
+    }
+    
+    // MARK: Keyboard handling
+    private func subscribeToKeyboardEvents() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    private func unsubscribeToKeyboardEvents() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        view.frame.origin.y = -getKeyboardHeight(notification) / 2
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
+    }
+    
+    private func getKeyboardHeight(_ notification: NSNotification) -> CGFloat {
+        guard let userInfo = notification.userInfo else {
+            return 0
+        }
+        guard let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+            return 0
+        }
+        return keyboardSize.cgRectValue.height
+    }
+}
+
+extension LoginVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textfieldUsername.resignFirstResponder()
+        textfieldPassword.resignFirstResponder()
+        return true
     }
 }

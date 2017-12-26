@@ -26,6 +26,9 @@ class SetMapPinVC: UIViewController {
         point.title = locationName
         point.coordinate = geocodedLocation
         map.addAnnotation(point)
+        
+        // Zoom to show the annotation
+        map.showAnnotations(map.annotations, animated: true)
     }
     
     @IBAction func onTapFinish(_ sender: UIButton, forEvent event: UIEvent) {

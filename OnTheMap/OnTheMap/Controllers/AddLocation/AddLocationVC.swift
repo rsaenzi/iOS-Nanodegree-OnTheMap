@@ -21,8 +21,24 @@ class AddLocationVC: UIViewController {
     private var profileURL = ""
     private var geocodedLocation = CLLocationCoordinate2D()
     
+    private let viewInitPosition = CGFloat(64)
+    
     override func viewDidLoad() {
         waitingMode(enable: false)
+        
+        // Sets the delegate of the textfields
+        textfieldLocationName.delegate = self
+        textfieldWebsite.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardEvents()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeToKeyboardEvents()
     }
     
     @IBAction func onTapCancel(_ sender: UIBarButtonItem) {
@@ -30,6 +46,10 @@ class AddLocationVC: UIViewController {
     }
     
     @IBAction func onTapFind(_ sender: UIButton, forEvent event: UIEvent) {
+        
+        // Dismiss the keyboard
+        textfieldLocationName.resignFirstResponder()
+        textfieldWebsite.resignFirstResponder()
         
         guard let locationName = textfieldLocationName.text, locationName.count > 0 else {
             showAlert("Please enter a valid Location")
@@ -92,5 +112,43 @@ class AddLocationVC: UIViewController {
         waitingView.isHidden = !enable
         
         buttonCancel.isEnabled = !enable
+    }
+    
+    // MARK: Keyboard handling
+    private func subscribeToKeyboardEvents() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    private func unsubscribeToKeyboardEvents() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        view.frame.origin.y = -getKeyboardHeight(notification) / 3
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = viewInitPosition
+    }
+    
+    private func getKeyboardHeight(_ notification: NSNotification) -> CGFloat {
+        guard let userInfo = notification.userInfo else {
+            return 0
+        }
+        guard let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+            return 0
+        }
+        return keyboardSize.cgRectValue.height
+    }
+}
+
+extension AddLocationVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textfieldLocationName.resignFirstResponder()
+        textfieldWebsite.resignFirstResponder()
+        return true
     }
 }
